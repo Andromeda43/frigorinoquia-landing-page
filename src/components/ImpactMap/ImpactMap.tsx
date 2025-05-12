@@ -1,392 +1,572 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-  Line,
-  ZoomableGroup
-} from 'react-simple-maps';
-import { feature } from 'topojson-client';
+import React, { useState, useEffect } from 'react';
+import { APIProvider, Map, AdvancedMarker, InfoWindow } from '@vis.gl/react-google-maps';
 
-// Definir el tipo para las ciudades
-interface City {
+// Definir el tipo para las ciudades/clientes
+interface Client {
   name: string;
-  coordinates: [number, number];
+  coordinates: { lat: number; lng: number };
   department: string;
-  distance: number;
-  clients: number;
-  isMainCity?: boolean;
+  customers: number;
+  isMainFacility?: boolean;
 }
 
 const ImpactMap: React.FC = () => {
-  const [selectedCity, setSelectedCity] = useState<City | null>(null);
-  const [tooltipPosition, setTooltipPosition] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
-  const [mapData, setMapData] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isError, setIsError] = useState<boolean>(false);
-  const mapContainerRef = useRef<HTMLDivElement>(null);
+  // API key de Google Maps (asegúrate de tenerla en tu archivo .env)
+  const API_KEY = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
   
-  // Coordenadas de las ciudades (longitud, latitud)
-  const cities: City[] = [
-    { 
-      name: "Tauramena", 
-      coordinates: [-72.7522, 5.0153], 
-      department: "Casanare", 
-      distance: 0, 
-      clients: 150, 
-      isMainCity: true 
+  // Estado para el marcador seleccionado
+  const [selectedClient, setSelectedClient] = useState<Client | null>(null);
+  
+  // Datos de clientes por ciudad (con municipios adicionales)
+  const clients: Client[] = [
+    {
+      name: "Planta Frigorinoquia",
+      coordinates: { lat: 5.017528674373511, lng: -72.73145083447243 },
+      department: "Casanare",
+      customers: 0, // No tiene clientes al ser la planta
+      isMainFacility: true
     },
-    { 
-      name: "Monterrey", 
-      coordinates: [-72.8951, 4.8789], 
-      department: "Casanare", 
-      distance: 25, 
-      clients: 45 
+    {
+      name: "Tauramena",
+      coordinates: { lat: 5.0153, lng: -72.7522 },
+      department: "Casanare",
+      customers: 54
     },
-    { 
-      name: "Aguazul", 
-      coordinates: [-72.5575, 5.1708], 
-      department: "Casanare", 
-      distance: 32, 
-      clients: 62 
+    {
+      name: "Monterrey",
+      coordinates: { lat: 4.8789, lng: -72.8951 },
+      department: "Casanare",
+      customers: 15
     },
-    { 
-      name: "Yopal", 
-      coordinates: [-72.4065, 5.3476], 
-      department: "Casanare", 
-      distance: 58, 
-      clients: 103 
+    {
+      name: "Aguazul",
+      coordinates: { lat: 5.1708, lng: -72.5575 },
+      department: "Casanare",
+      customers: 3
     },
-    { 
-      name: "Villanueva", 
-      coordinates: [-72.9264, 4.6107], 
-      department: "Casanare", 
-      distance: 65, 
-      clients: 48 
+    {
+      name: "Yopal",
+      coordinates: { lat: 5.3476, lng: -72.4065 },
+      department: "Casanare",
+      customers: 16
     },
-    { 
-      name: "Chía", 
-      coordinates: [-74.0587, 4.8619], 
-      department: "Cundinamarca", 
-      distance: 380, 
-      clients: 27 
+    {
+      name: "Villanueva",
+      coordinates: { lat: 4.6107, lng: -72.9264 },
+      department: "Casanare",
+      customers: 8
     },
-    { 
-      name: "Cali", 
-      coordinates: [-76.5225, 3.4516], 
-      department: "Valle del Cauca", 
-      distance: 785, 
-      clients: 18 
+    {
+      name: "Chía",
+      coordinates: { lat: 4.8619, lng: -74.0587 },
+      department: "Cundinamarca",
+      customers: 1
     },
-    { 
-      name: "Malambo", 
-      coordinates: [-74.7742, 10.8574], 
-      department: "Atlántico", 
-      distance: 925, 
-      clients: 15 
+    {
+      name: "Cali",
+      coordinates: { lat: 3.4516, lng: -76.5325 },
+      department: "Valle del Cauca",
+      customers: 1
+    },
+    {
+      name: "Malambo",
+      coordinates: { lat: 10.9639, lng: -74.7964 },
+      department: "Atlántico",
+      customers: 1
+    },
+    {
+      name: "Arauca",
+      coordinates: { lat: 7.0847, lng: -70.7587 },
+      department: "Arauca",
+      customers: 1
+    },
+    {
+      name: "Sabanalarga",
+      coordinates: { lat: 4.8511, lng: -73.0428 },
+      department: "Casanare",
+      customers: 1
+    },
+    {
+      name: "Garagoa",
+      coordinates: { lat: 5.0825, lng: -73.3644 },
+      department: "Boyacá",
+      customers: 1
+    },
+    {
+      name: "San Luis de Gaceno",
+      coordinates: { lat: 4.8225, lng: -73.1689 },
+      department: "Boyacá",
+      customers: 1
+    },
+    {
+      name: "Medellín",
+      coordinates: { lat: 6.2476, lng: -75.5658 },
+      department: "Antioquia",
+      customers: 1
+    }
+  ];
+  
+  // Organizar los clientes para que la planta aparezca al final (encima de los demás)
+  const sortedClients = [...clients].sort((a, b) => {
+    if (a.isMainFacility) return 1; // Poner la planta al final
+    if (b.isMainFacility) return -1;
+    return 0;
+  });
+  
+  // Estilos personalizados para el mapa
+  const mapStyles = [
+    {
+      featureType: "water",
+      elementType: "geometry",
+      stylers: [
+        { color: "#a9c8e8" }
+      ]
+    },
+    {
+      featureType: "landscape",
+      elementType: "geometry",
+      stylers: [
+        { color: "#f5f5f5" }
+      ]
+    },
+    {
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [
+        { color: "#ffffff" }
+      ]
+    },
+    {
+      featureType: "poi",
+      stylers: [
+        { visibility: "off" }
+      ]
+    },
+    {
+      featureType: "transit",
+      stylers: [
+        { visibility: "off" }
+      ]
+    },
+    {
+      featureType: "administrative",
+      elementType: "geometry.stroke",
+      stylers: [
+        { color: "#c9c9c9" }
+      ]
+    },
+    {
+      featureType: "administrative.land_parcel",
+      stylers: [
+        { visibility: "off" }
+      ]
+    },
+    {
+      featureType: "administrative.neighborhood",
+      stylers: [
+        { visibility: "off" }
+      ]
+    },
+    {
+      featureType: "road.highway",
+      elementType: "labels",
+      stylers: [
+        { visibility: "simplified" }
+      ]
+    },
+    {
+      featureType: "road.arterial",
+      elementType: "labels",
+      stylers: [
+        { visibility: "simplified" }
+      ]
+    },
+    {
+      featureType: "road.local",
+      elementType: "labels",
+      stylers: [
+        { visibility: "simplified" }
+      ]
     }
   ];
 
-  const tauramenaCoordinates = cities.find(city => city.name === "Tauramena")?.coordinates || [-72.7522, 5.0153];
+  // Coordenadas para centrar el mapa en Colombia
+  const colombiaCenterCoordinates = { lat: 5.5709, lng: -73.5973 };
   
-  // Obtener datos del mapa al cargar el componente
+  // Establecer el zoom inicial del mapa para mostrar Colombia
+  const [zoom, setZoom] = useState(6);
+  
+  // Ajustar el zoom en dispositivos móviles
   useEffect(() => {
-    fetch("/colombia-topo.json")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error al cargar el mapa de Colombia');
-        }
-        return response.json();
-      })
-      .then(topology => {
-        // Convertir TopoJSON a GeoJSON
-        const geoJson = feature(topology, topology.objects.collection);
-        setMapData(geoJson);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        console.error("Error cargando el mapa:", error);
-        setIsError(true);
-        setIsLoading(false);
-      });
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setZoom(5);
+      } else {
+        setZoom(6);
+      }
+    };
+    
+    // Establecer el zoom inicial
+    handleResize();
+    
+    // Agregar listener para cambios de tamaño
+    window.addEventListener('resize', handleResize);
+    
+    // Limpiar listener
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  // Manejar el hover en las ciudades para mostrar tooltip
-  const handleCityMouseEnter = (city: City, event: React.MouseEvent) => {
-    const rect = mapContainerRef.current?.getBoundingClientRect();
-    if (rect) {
-      setTooltipPosition({
-        x: event.clientX - rect.left,
-        y: event.clientY - rect.top
-      });
-    }
-    setSelectedCity(city);
+  // Manejar el clic en un marcador
+  const handleMarkerClick = (client: Client) => {
+    setSelectedClient(client);
   };
   
-  const handleCityMouseLeave = () => {
-    setSelectedCity(null);
-  };
+  // Calcular la suma total de clientes (excluyendo la planta principal)
+  const totalClients = clients
+    .filter(client => !client.isMainFacility)
+    .reduce((total, client) => total + client.customers, 0);
   
-  // Generar la onda expansiva desde Tauramena
-  const PulseCircle = () => (
-    <motion.circle
-      cx={0}
-      cy={0}
-      r={5}
-      fill="none"
-      stroke="#1E3A8A"
-      strokeWidth={2}
-      initial={{ opacity: 1, scale: 0 }}
-      animate={{ 
-        opacity: 0, 
-        scale: 5,
-        transition: { 
-          repeat: Infinity, 
-          duration: 3,
-          ease: "easeOut" 
-        } 
-      }}
-    />
+  // Calcular el número de departamentos únicos
+  const uniqueDepartments = new Set(clients.map(client => client.department)).size;
+
+  // SVG para el icono de la planta principal (ligeramente más grande para destacar)
+  const FacilityIcon = () => (
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 21H21V11L17 7V3H7V7L3 11V21Z" fill="#1E3A8A" stroke="white" strokeWidth="2"/>
+      <path d="M9 9H15V21H9V9Z" fill="white"/>
+      <path d="M3 21H21" stroke="white" strokeWidth="2"/>
+    </svg>
   );
 
-  if (isLoading) {
-    return (
-      <section id="impacto" className="section bg-neutral-100">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-primary border-solid"></div>
-          </div>
-          <p>Cargando mapa de impacto regional...</p>
-        </div>
-      </section>
-    );
-  }
+  // SVG para el icono de ciudad con clientes
+  const LocationIcon = () => (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 9.5C19 13.0899 12 21 12 21C12 21 5 13.0899 5 9.5C5 5.91015 8.13401 3 12 3C15.866 3 19 5.91015 19 9.5Z" fill="#3B82F6" stroke="white" strokeWidth="2"/>
+      <path d="M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z" fill="white"/>
+    </svg>
+  );
 
-  if (isError) {
-    return (
-      <section id="impacto" className="section bg-neutral-100">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <div className="p-6 bg-red-100 rounded-lg">
-            <h3 className="text-xl font-bold text-red-700 mb-2">Error al cargar el mapa</h3>
-            <p>No pudimos cargar el mapa. Por favor, vuelve a intentarlo más tarde.</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-  
   return (
-    <section id="impacto" className="section bg-neutral-100">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="section-title">
-          <h2>Impacto Regional</h2>
-          <p className="text-neutral-700 max-w-3xl mx-auto">
+    <section id="impacto" style={{
+      padding: '5rem 0',
+      backgroundColor: '#f3f4f6',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 1rem'
+      }}>
+        <div style={{
+          textAlign: 'center',
+          marginBottom: '4rem'
+        }}>
+          <h2 style={{
+            fontSize: '2.25rem',
+            fontWeight: 'bold',
+            marginBottom: '1rem',
+            color: '#1f2937'
+          }}>Impacto Regional</h2>
+          <p style={{
+            color: '#4b5563',
+            maxWidth: '768px',
+            margin: '0 auto'
+          }}>
             Desde Tauramena, Frigorinoquia extiende su alcance a todo el país, llevando calidad y excelencia a diversas regiones.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          <div className="lg:col-span-2">
-            <div 
-              ref={mapContainerRef} 
-              className="relative bg-white rounded-lg shadow-lg p-4 h-[500px] overflow-hidden"
-            >
-              <ComposableMap
-                projection="geoMercator"
-                projectionConfig={{
-                  scale: 2500,
-                  center: [-73.5, 5.5] // Centrado cerca de Tauramena
-                }}
-                className="w-full h-full"
-              >
-                <ZoomableGroup zoom={1}>
-                  {/* Renderizar mapa de Colombia */}
-                  {mapData && (
-                    <Geographies geography={mapData}>
-                      {({ geographies }) =>
-                        geographies.map(geo => (
-                          <Geography
-                            key={geo.rsmKey}
-                            geography={geo}
-                            fill="#E5E7EB"
-                            stroke="#D1D5DB"
-                            strokeWidth={0.5}
-                            style={{
-                              default: { outline: "none" },
-                              hover: { outline: "none", fill: "#D1D5DB" },
-                              pressed: { outline: "none" }
-                            }}
-                          />
-                        ))
-                      }
-                    </Geographies>
-                  )}
-                  
-                  {/* Líneas desde Tauramena a otras ciudades */}
-                  {cities.filter(city => !city.isMainCity).map((city, index) => (
-                    <motion.g key={`line-${city.name}`}>
-                      <Line
-                        from={tauramenaCoordinates}
-                        to={city.coordinates}
-                        stroke="#1E3A8A"
-                        strokeWidth={1.5}
-                        strokeOpacity={0.6}
-                        strokeLinecap="round"
-                        strokeDasharray="5,5"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ 
-                          pathLength: 1, 
-                          opacity: 0.6,
-                          transition: { 
-                            delay: index * 0.2, 
-                            duration: 1.5,
-                            ease: "easeInOut"
-                          } 
-                        }}
-                      />
-                    </motion.g>
-                  ))}
-                  
-                  {/* Marcadores de ciudades */}
-                  {cities.map((city) => (
-                    <Marker 
-                      key={city.name} 
-                      coordinates={city.coordinates}
-                      onMouseEnter={(e) => handleCityMouseEnter(city, e as React.MouseEvent)}
-                      onMouseLeave={handleCityMouseLeave}
-                    >
-                      <g transform="translate(-12, -24)">
-                        {city.isMainCity ? (
-                          // Marcador principal para Tauramena con efecto de pulso
-                          <>
-                            <PulseCircle />
-                            <circle 
-                              r={8} 
-                              fill="#1E3A8A" 
-                              stroke="#FFFFFF" 
-                              strokeWidth={2} 
-                            />
-                          </>
-                        ) : (
-                          // Marcadores para otras ciudades
-                          <motion.circle 
-                            r={4} 
-                            fill="#BE123C" 
-                            stroke="#FFFFFF" 
-                            strokeWidth={1.5}
-                            initial={{ scale: 0 }}
-                            animate={{ 
-                              scale: 1,
-                              transition: { 
-                                delay: cities.indexOf(city) * 0.2 + 0.5, 
-                                type: "spring",
-                                stiffness: 260,
-                                damping: 20
-                              } 
-                            }}
-                          />
-                        )}
-                      </g>
-                    </Marker>
-                  ))}
-                </ZoomableGroup>
-              </ComposableMap>
-              
-              {/* Tooltip para mostrar información al hacer hover en ciudades */}
-              <AnimatePresence>
-                {selectedCity && (
-                  <motion.div
-                    className="absolute bg-white p-3 rounded-lg shadow-lg z-10 w-60"
-                    style={{ 
-                      left: tooltipPosition.x + 10, 
-                      top: tooltipPosition.y + 10,
-                      pointerEvents: "none" 
-                    }}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
+        <div className="impact-grid">
+          <div className="map-container">
+            <div style={{
+              backgroundColor: 'white',
+              borderRadius: '0.5rem',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+              overflow: 'hidden',
+              height: '100%'
+            }}>
+              {API_KEY ? (
+                <APIProvider apiKey={API_KEY}>
+                  <Map
+                    defaultCenter={colombiaCenterCoordinates}
+                    defaultZoom={zoom}
+                    gestureHandling="greedy"
+                    style={{ width: '100%', height: '100%' }}
+                    mapTypeId="roadmap"
+                    mapId="clientMapId"
+                    disableDefaultUI={true}
+                    zoomControl={true}
+                    styles={mapStyles}
                   >
-                    <h4 className="font-bold text-lg text-primary">{selectedCity.name}</h4>
-                    <p className="text-sm text-neutral-600">{selectedCity.department}</p>
-                    <div className="mt-2 grid grid-cols-2 gap-2 text-sm">
-                      <div>
-                        <span className="block text-neutral-500">Distancia</span>
-                        <span className="font-medium">{selectedCity.distance} km</span>
-                      </div>
-                      <div>
-                        <span className="block text-neutral-500">Clientes</span>
-                        <span className="font-medium">{selectedCity.clients}</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              
-              {/* Leyenda del mapa */}
-              <div className="absolute bottom-4 left-4 bg-white/90 p-3 rounded-lg shadow-sm border border-neutral-200">
-                <h4 className="text-sm font-bold mb-2">Leyenda</h4>
-                <div className="flex items-center mb-1">
-                  <div className="w-3 h-3 rounded-full bg-primary mr-2"></div>
-                  <span className="text-xs">Sede principal</span>
+                    {/* Renderizar marcadores para cada cliente con iconos personalizados */}
+                    {sortedClients.map((client) => (
+                      <AdvancedMarker
+                        key={client.name}
+                        position={client.coordinates}
+                        onClick={() => handleMarkerClick(client)}
+                        zIndex={client.isMainFacility ? 1000 : 1} // Asegurar que la planta esté por encima
+                      >
+                        {/* Renderiza un icono diferente según sea la planta principal o una ciudad */}
+                        {client.isMainFacility ? <FacilityIcon /> : <LocationIcon />}
+                      </AdvancedMarker>
+                    ))}
+                    
+                    {/* Mostrar ventana de información simplificada y compacta */}
+                    {selectedClient && (
+                      <InfoWindow
+                        position={selectedClient.coordinates}
+                        onCloseClick={() => setSelectedClient(null)}
+                        pixelOffset={[0, -5]} // Corregido: array en lugar de objeto
+                      >
+                        <div style={{
+                          padding: '5px 10px',
+                          minWidth: '80px',
+                          textAlign: 'center',
+                          margin: 0
+                        }}>
+                          <div style={{
+                            fontWeight: 'bold',
+                            color: '#1f2937',
+                            fontSize: '16px',
+                            marginBottom: '0px',
+                            lineHeight: 1.2
+                          }}>{selectedClient.name}</div>
+                          <div style={{
+                            fontSize: '14px',
+                            color: '#4b5563',
+                            margin: 0,
+                            lineHeight: 1.2
+                          }}>{selectedClient.department}</div>
+                        </div>
+                      </InfoWindow>
+                    )}
+                  </Map>
+                </APIProvider>
+              ) : (
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  height: '100%',
+                  backgroundColor: '#e5e7eb'
+                }}>
+                  <p style={{
+                    color: '#4b5563'
+                  }}>
+                    API Key de Google Maps no configurada. 
+                    Configura tu API key en el archivo .env
+                  </p>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 rounded-full bg-accent mr-2"></div>
-                  <span className="text-xs">Ciudades con presencia</span>
-                </div>
-              </div>
+              )}
             </div>
           </div>
           
-          <div>
-            <div className="bg-white rounded-lg shadow-lg p-6 h-full">
-              <h3 className="text-xl font-bold mb-4 text-primary">Estadísticas de Impacto</h3>
+          <div className="stats-container">
+            <div style={{
+              backgroundColor: 'white',
+              borderRadius: '0.5rem',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+              padding: '1.25rem',
+              height: '600px',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <h3 style={{
+                fontSize: '1.25rem',
+                fontWeight: 'bold',
+                marginBottom: '1rem',
+                color: '#1f2937',
+                borderBottom: '1px solid #e5e7eb',
+                paddingBottom: '0.5rem'
+              }}>Estadísticas de Impacto</h3>
               
-              <div className="space-y-4">
-                <div className="p-4 bg-primary/5 rounded-lg">
-                  <div className="flex justify-between items-center">
-                    <span className="text-neutral-700">Ciudades</span>
-                    <span className="text-2xl font-bold text-primary">{cities.length}</span>
-                  </div>
+              {/* Grid de estadísticas 2x3 */}
+              <div className="stats-grid">
+                <div style={{
+                  padding: '0.75rem',
+                  backgroundColor: '#EFF6FF',
+                  borderRadius: '0.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center'
+                }}>
+                  <span style={{
+                    fontSize: '2rem',
+                    fontWeight: 'bold',
+                    color: '#1E3A8A',
+                    lineHeight: '1'
+                  }}>{clients.length - 1}</span>
+                  <span style={{
+                    color: '#374151',
+                    fontSize: '0.875rem',
+                    marginTop: '0.5rem'
+                  }}>Ciudades</span>
                 </div>
                 
-                <div className="p-4 bg-primary/5 rounded-lg">
-                  <div className="flex justify-between items-center">
-                    <span className="text-neutral-700">Departamentos</span>
-                    <span className="text-2xl font-bold text-primary">4</span>
-                  </div>
+                <div style={{
+                  padding: '0.75rem',
+                  backgroundColor: '#EFF6FF',
+                  borderRadius: '0.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center'
+                }}>
+                  <span style={{
+                    fontSize: '2rem',
+                    fontWeight: 'bold',
+                    color: '#1E3A8A',
+                    lineHeight: '1'
+                  }}>{uniqueDepartments}</span>
+                  <span style={{
+                    color: '#374151',
+                    fontSize: '0.875rem',
+                    marginTop: '0.5rem'
+                  }}>Departamentos</span>
                 </div>
                 
-                <div className="p-4 bg-primary/5 rounded-lg">
-                  <div className="flex justify-between items-center">
-                    <span className="text-neutral-700">Alcance total</span>
-                    <span className="text-2xl font-bold text-primary">1000+ km</span>
-                  </div>
+                <div style={{
+                  padding: '0.75rem',
+                  backgroundColor: '#EFF6FF',
+                  borderRadius: '0.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center'
+                }}>
+                  <span style={{
+                    fontSize: '2rem',
+                    fontWeight: 'bold',
+                    color: '#1E3A8A',
+                    lineHeight: '1'
+                  }}>{totalClients}+</span>
+                  <span style={{
+                    color: '#374151',
+                    fontSize: '0.875rem',
+                    marginTop: '0.5rem'
+                  }}>Clientes activos</span>
                 </div>
                 
-                <div className="p-4 bg-primary/5 rounded-lg">
-                  <div className="flex justify-between items-center">
-                    <span className="text-neutral-700">Clientes activos</span>
-                    <span className="text-2xl font-bold text-primary">450+</span>
-                  </div>
+                <div style={{
+                  padding: '0.75rem',
+                  backgroundColor: '#EFF6FF',
+                  borderRadius: '0.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center'
+                }}>
+                  <span style={{
+                    fontSize: '2rem',
+                    fontWeight: 'bold',
+                    color: '#1E3A8A',
+                    lineHeight: '1'
+                  }}>1000+</span>
+                  <span style={{
+                    color: '#374151',
+                    fontSize: '0.875rem',
+                    marginTop: '0.5rem'
+                  }}>Kilómetros</span>
                 </div>
-              </div>
-              
-              <div className="mt-6 p-4 border-l-4 border-accent bg-neutral-50 rounded-r-lg">
-                <h4 className="font-bold text-lg mb-2">Testimonio destacado</h4>
-                <blockquote className="text-neutral-700 italic">
-                  "Frigorinoquia ha sido fundamental para nuestra cadena de distribución. Su sistema de trazabilidad y atención al detalle nos da la confianza que necesitamos."
-                </blockquote>
-                <div className="mt-2 text-sm font-medium text-neutral-900">
-                  Carlos Rodríguez - Distribuidora La Hacienda, Yopal
+                
+                <div className="span-2" style={{
+                  padding: '0.75rem',
+                  backgroundColor: '#EFF6FF',
+                  borderRadius: '0.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center'
+                }}>
+                  <span style={{
+                    fontSize: '2rem',
+                    fontWeight: 'bold',
+                    color: '#1E3A8A',
+                    lineHeight: '1'
+                  }}>12.5k</span>
+                  <span style={{
+                    color: '#374151',
+                    fontSize: '0.875rem',
+                    marginTop: '0.5rem'
+                  }}>Canales anuales</span>
+                </div>
+                
+                <div className="span-2" style={{
+                  padding: '0.75rem',
+                  backgroundColor: '#EFF6FF',
+                  borderRadius: '0.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center'
+                }}>
+                  <span style={{
+                    fontSize: '2rem',
+                    fontWeight: 'bold',
+                    color: '#1E3A8A',
+                    lineHeight: '1'
+                  }}>85%</span>
+                  <span style={{
+                    color: '#374151',
+                    fontSize: '0.875rem',
+                    marginTop: '0.5rem'
+                  }}>Participación regional</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Estilos CSS para solucionar los problemas de diseño responsive */}
+      <style>
+        {`
+        .impact-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.75rem;
+          flex-grow: 1;
+          margin-top: 0;
+        }
+        
+        .span-2 {
+          grid-column: span 2;
+        }
+        
+        /* Media query para hacer el diseño responsive */
+        @media (min-width: 1024px) {
+          .impact-grid {
+            grid-template-columns: 2fr 1fr;
+          }
+        }
+        
+        /* CSS personalizados para que los InfoWindow se vean como en la imagen */
+        .gm-style .gm-style-iw-c {
+          padding: 0 !important;
+          border-radius: 8px !important;
+          box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .gm-style .gm-style-iw-d {
+          overflow: hidden !important;
+          padding: 0 !important;
+        }
+        `}
+      </style>
     </section>
   );
 };

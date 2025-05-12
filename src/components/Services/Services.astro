@@ -1,201 +1,469 @@
 ---
 // Services.astro
+import { Image } from 'astro:assets';
 ---
 
-<section id="servicios" class="section">
-    <div class="container mx-auto px-4 lg:px-8">
-      <div class="section-title">
-        <h2>Nuestros Servicios</h2>
-        <p class="text-neutral-700 max-w-3xl mx-auto">Ofrecemos servicios especializados con los más altos estándares de calidad para cada etapa del proceso.</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Servicio 1: Recepción y Codificación -->
-        <div class="card hover:shadow-2xl hover:-translate-y-1 reveal-from-bottom">
-          <div class="h-56 overflow-hidden relative">
+<section id="servicios" class="py-20 bg-white">
+  <div class="container mx-auto px-4 lg:px-8">
+    <!-- Título de sección -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
+      <p class="text-gray-600 max-w-3xl mx-auto">Ofrecemos servicios especializados con los más altos estándares de calidad para cada etapa del proceso.</p>
+    </div>
+    
+    <!-- Grid de servicios -->
+    <div class="services-grid">
+      <!-- Servicio 1: Recepción y Codificación -->
+      <div class="service-card">
+        <div class="service-image-container">
+          <picture>
+            <source srcset="/images/services/recepcion.webp" type="image/webp">
             <img 
               src="/images/services/recepcion.jpg" 
               alt="Servicio de Recepción y Codificación" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              class="service-image"
+              loading="lazy"
+              width="600" 
+              height="400"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent"></div>
-            <h3 class="absolute bottom-4 left-4 text-white font-bold text-xl drop-shadow-md">Recepción y Codificación</h3>
-          </div>
-          <div class="p-6">
-            <p class="text-neutral-700 mb-4">En Frigorinoquia, entendemos la importancia de un control riguroso y preciso desde el momento en que su ganado llega a nuestras instalaciones. Nuestro servicio de recepción y codificación asegura que cada cliente y cada animal tengan un código único, permitiendo una trazabilidad completa.</p>
-            <div class="flex justify-between items-center">
-              <div class="text-sm text-primary font-medium">
-                Trazabilidad Completa
-              </div>
-              <button class="text-primary hover:text-primary-light transition-colors" id="btn-service-1">
-                <span class="sr-only">Ver más detalles</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
+          </picture>
+          <div class="service-overlay"></div>
+          <h3 class="service-title">Recepción y Codificación</h3>
         </div>
-        
-        <!-- Servicio 2: Corrales -->
-        <div class="card hover:shadow-2xl hover:-translate-y-1 reveal-from-bottom" style="transition-delay: 0.1s">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="/images/services/corrales.jpg" 
-              alt="Servicio de Corrales" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent"></div>
-            <h3 class="absolute bottom-4 left-4 text-white font-bold text-xl drop-shadow-md">Servicio de Corrales</h3>
-          </div>
-          <div class="p-6">
-            <p class="text-neutral-700 mb-4">En Frigorinoquia, cuidamos de cada detalle para garantizar el bienestar de sus animales. Nuestros corrales, con capacidad para 500 animales, están diseñados para brindar un espacio seguro y cómodo, asegurando el trato respetuoso y digno de cada animal.</p>
-            <div class="flex justify-between items-center">
-              <div class="text-sm text-primary font-medium">
-                Bienestar Animal Garantizado
-              </div>
-              <button class="text-primary hover:text-primary-light transition-colors" id="btn-service-2">
-                <span class="sr-only">Ver más detalles</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Servicio 3: Sacrificio -->
-        <div class="card hover:shadow-2xl hover:-translate-y-1 reveal-from-bottom" style="transition-delay: 0.2s">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="/images/services/sacrificio.jpg" 
-              alt="Servicio de Sacrificio" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent"></div>
-            <h3 class="absolute bottom-4 left-4 text-white font-bold text-xl drop-shadow-md">Servicio de Sacrificio</h3>
-          </div>
-          <div class="p-6">
-            <p class="text-neutral-700 mb-4">En Frigorinoquia, nos enorgullece ofrecer un servicio de sacrificio que cumple con los más altos estándares de calidad y sanidad, siguiendo rigurosamente las normativas del Decreto 1500 de 2007, asegurando la inocuidad de la carne.</p>
-            <div class="flex justify-between items-center">
-              <div class="text-sm text-primary font-medium">
-                Estándares de Excelencia
-              </div>
-              <button class="text-primary hover:text-primary-light transition-colors" id="btn-service-3">
-                <span class="sr-only">Ver más detalles</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Servicio 4: Cuartos Fríos -->
-        <div class="card hover:shadow-2xl hover:-translate-y-1 reveal-from-bottom" style="transition-delay: 0.3s">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="/images/services/cuartos-frios.jpg" 
-              alt="Servicio de Cuartos Fríos" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent"></div>
-            <h3 class="absolute bottom-4 left-4 text-white font-bold text-xl drop-shadow-md">Cuartos Fríos</h3>
-          </div>
-          <div class="p-6">
-            <p class="text-neutral-700 mb-4">Nuestros cuartos fríos están diseñados para enfriar las canales a una temperatura óptima de 4°C, asegurando que la carne se refrigere adecuadamente y conserve todas sus propiedades para mantener la más alta calidad.</p>
-            <div class="flex justify-between items-center">
-              <div class="text-sm text-primary font-medium">
-                Conservación Óptima
-              </div>
-              <button class="text-primary hover:text-primary-light transition-colors" id="btn-service-4">
-                <span class="sr-only">Ver más detalles</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Servicio 5: Despacho -->
-        <div class="card hover:shadow-2xl hover:-translate-y-1 reveal-from-bottom" style="transition-delay: 0.4s">
-          <div class="h-56 overflow-hidden relative">
-            <img 
-              src="/images/services/despacho.jpg" 
-              alt="Servicio de Despacho" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent"></div>
-            <h3 class="absolute bottom-4 left-4 text-white font-bold text-xl drop-shadow-md">Servicio de Despacho</h3>
-          </div>
-          <div class="p-6">
-            <p class="text-neutral-700 mb-4">En nuestro servicio de despacho, nos encargamos de cargar cuidadosamente las canales que han sido beneficiadas, asegurándonos de que cada pieza esté en perfectas condiciones para su transporte, utilizando precintos únicos de seguridad.</p>
-            <div class="flex justify-between items-center">
-              <div class="text-sm text-primary font-medium">
-                Seguridad Garantizada
-              </div>
-              <button class="text-primary hover:text-primary-light transition-colors" id="btn-service-5">
-                <span class="sr-only">Ver más detalles</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Indicador de servicios adicionales -->
-        <div class="flex items-center justify-center h-full">
-          <div class="text-center p-6">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-100 text-primary mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        <div class="service-content">
+          <p>En Frigorinoquia, entendemos la importancia de un control riguroso y preciso desde el momento en que su ganado llega a nuestras instalaciones. Nuestro servicio de recepción y codificación asegura que cada cliente y cada animal tengan un código único, permitiendo una trazabilidad completa.</p>
+          <div class="service-footer">
+            <div class="service-tag">Trazabilidad Completa</div>
+            <button class="service-button" id="btn-service-1">
+              <span class="sr-only">Ver más detalles</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Servicios Personalizados</h3>
-            <p class="text-neutral-700 mb-4">Adaptamos nuestros servicios a las necesidades específicas de cada cliente.</p>
-            <a href="#contacto" class="btn-primary inline-block">Contáctanos</a>
+            </button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Modal para detalles de servicios (se implementaría con JavaScript) -->
-  <div id="service-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
-    <div class="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-auto mx-4">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-4">
-          <h3 id="modal-title" class="text-2xl font-bold text-neutral-900">Detalles del Servicio</h3>
-          <button id="close-modal" class="text-neutral-500 hover:text-neutral-700">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+      
+      <!-- Servicio 2: Corrales -->
+      <div class="service-card">
+        <div class="service-image-container">
+          <picture>
+            <source srcset="/images/services/corrales.webp" type="image/webp">
+            <img 
+              src="/images/services/corrales.jpg" 
+              alt="Servicio de Corrales" 
+              class="service-image"
+              loading="lazy"
+              width="600" 
+              height="400"
+            />
+          </picture>
+          <div class="service-overlay"></div>
+          <h3 class="service-title">Servicio de Corrales</h3>
         </div>
-        <div id="modal-content">
-          <!-- El contenido se llenará dinámicamente con JavaScript -->
+        <div class="service-content">
+          <p>En Frigorinoquia, cuidamos de cada detalle para garantizar el bienestar de sus animales. Nuestros corrales, con capacidad para 500 animales, están diseñados para brindar un espacio seguro y cómodo, asegurando el trato respetuoso y digno de cada animal.</p>
+          <div class="service-footer">
+            <div class="service-tag">Bienestar Animal Garantizado</div>
+            <button class="service-button" id="btn-service-2">
+              <span class="sr-only">Ver más detalles</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Servicio 3: Sacrificio -->
+      <div class="service-card">
+        <div class="service-image-container">
+          <picture>
+            <source srcset="/images/services/sacrificio.webp" type="image/webp">
+            <img 
+              src="/images/services/sacrificio.jpg" 
+              alt="Servicio de Sacrificio" 
+              class="service-image"
+              loading="lazy"
+              width="600" 
+              height="400"
+            />
+          </picture>
+          <div class="service-overlay"></div>
+          <h3 class="service-title">Servicio de Sacrificio</h3>
+        </div>
+        <div class="service-content">
+          <p>En Frigorinoquia, nos enorgullece ofrecer un servicio de sacrificio que cumple con los más altos estándares de calidad y sanidad, siguiendo rigurosamente las normativas del Decreto 1500 de 2007, asegurando la inocuidad de la carne.</p>
+          <div class="service-footer">
+            <div class="service-tag">Estándares de Excelencia</div>
+            <button class="service-button" id="btn-service-3">
+              <span class="sr-only">Ver más detalles</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Servicio 4: Cuartos Fríos -->
+      <div class="service-card">
+        <div class="service-image-container">
+          <picture>
+            <source srcset="/images/services/cuartos-frios.webp" type="image/webp">
+            <img 
+              src="/images/services/cuartos-frios.jpg" 
+              alt="Servicio de Cuartos Fríos" 
+              class="service-image"
+              loading="lazy"
+              width="600" 
+              height="400"
+            />
+          </picture>
+          <div class="service-overlay"></div>
+          <h3 class="service-title">Cuartos Fríos</h3>
+        </div>
+        <div class="service-content">
+          <p>Nuestros cuartos fríos están diseñados para enfriar las canales a una temperatura óptima de 4°C, asegurando que la carne se refrigere adecuadamente y conserve todas sus propiedades para mantener la más alta calidad.</p>
+          <div class="service-footer">
+            <div class="service-tag">Conservación Óptima</div>
+            <button class="service-button" id="btn-service-4">
+              <span class="sr-only">Ver más detalles</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Servicio 5: Despacho -->
+      <div class="service-card">
+        <div class="service-image-container">
+          <picture>
+            <source srcset="/images/services/despacho.webp" type="image/webp">
+            <img 
+              src="/images/services/despacho.jpg" 
+              alt="Servicio de Despacho" 
+              class="service-image"
+              loading="lazy"
+              width="600" 
+              height="400"
+            />
+          </picture>
+          <div class="service-overlay"></div>
+          <h3 class="service-title">Servicio de Despacho</h3>
+        </div>
+        <div class="service-content">
+          <p>En nuestro servicio de despacho, nos encargamos de cargar cuidadosamente las canales que han sido beneficiadas, asegurándonos de que cada pieza esté en perfectas condiciones para su transporte, utilizando precintos únicos de seguridad.</p>
+          <div class="service-footer">
+            <div class="service-tag">Seguridad Garantizada</div>
+            <button class="service-button" id="btn-service-5">
+              <span class="sr-only">Ver más detalles</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Indicador de servicios adicionales -->
+      <div class="service-card service-card-cta">
+        <div class="text-center">
+          <div class="cta-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Servicios Personalizados</h3>
+          <p class="mb-4">Adaptamos nuestros servicios a las necesidades específicas de cada cliente.</p>
+          <a href="#contacto" class="cta-button">Contáctanos</a>
         </div>
       </div>
     </div>
   </div>
+</section>
+
+<!-- Modal para detalles de servicios -->
+<div id="service-modal" class="modal-container">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modal-title" class="modal-title">Detalles del Servicio</h3>
+      <button id="close-modal" class="modal-close">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div id="modal-content">
+      <!-- El contenido se llenará dinámicamente con JavaScript -->
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos básicos para la sección */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   
-  <script>
-    // Lógica para mostrar el modal con detalles del servicio
-    const serviceModal = document.getElementById('service-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalContent = document.getElementById('modal-content');
-    const closeModal = document.getElementById('close-modal');
+  h2 {
+    color: #1f2937;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  /* Grid de servicios */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Tarjetas de servicio */
+  .service-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Retrasos de animación */
+  .services-grid > div:nth-child(1) { animation-delay: 0.1s; }
+  .services-grid > div:nth-child(2) { animation-delay: 0.2s; }
+  .services-grid > div:nth-child(3) { animation-delay: 0.3s; }
+  .services-grid > div:nth-child(4) { animation-delay: 0.4s; }
+  .services-grid > div:nth-child(5) { animation-delay: 0.5s; }
+  .services-grid > div:nth-child(6) { animation-delay: 0.6s; }
+  
+  /* Contenedor de imagen */
+  .service-image-container {
+    height: 14rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .service-card:hover .service-image {
+    transform: scale(1.1);
+  }
+  
+  .service-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  }
+  
+  .service-title {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Contenido de la tarjeta */
+  .service-content {
+    padding: 1.5rem;
+  }
+  
+  .service-content p {
+    color: #4b5563;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .service-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .service-tag {
+    color: #1E3A8A;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .service-button {
+    color: #1E3A8A;
+    transition: color 0.2s ease;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .service-button:hover {
+    color: #3B82F6;
+  }
+  
+  /* Tarjeta de CTA */
+  .service-card-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  
+  .cta-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 9999px;
+    background-color: #EFF6FF;
+    color: #1E3A8A;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: #1E3A8A;
+    color: white;
+    font-weight: 500;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .cta-button:hover {
+    background-color: #1e40af;
+  }
+  
+  /* Estilos del modal */
+  .modal-container {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .modal-container.active {
+    display: flex;
+  }
+  
+  .modal-content {
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 48rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  
+  .modal-close {
+    color: #6b7280;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .modal-close:hover {
+    color: #1f2937;
+  }
+  
+  #modal-content {
+    padding: 1.5rem;
+  }
+  
+  /* Animación de aparición */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Definir tipos para servicios
+    interface ServiceData {
+      title: string;
+      content: string;
+    }
     
-    // Datos de servicios
-    const servicesData = {
+    // Mapa de datos de servicios con tipos seguros
+    const servicesData: Record<string, ServiceData> = {
       'btn-service-1': {
         title: 'Servicio de Recepción y Codificación',
         content: `
-          <div class="mb-6">
+          <div>
             <div class="rounded-lg overflow-hidden mb-4">
-              <img src="/images/services/recepcion-detail.jpg" alt="Recepción y Codificación" class="w-full h-auto">
+              <picture>
+                <source srcset="/images/services/recepcion-detail.webp" type="image/webp">
+                <img 
+                  src="/images/services/recepcion-detail.jpg" 
+                  alt="Recepción y Codificación" 
+                  class="w-full h-auto"
+                  loading="lazy"
+                  width="800" 
+                  height="500"
+                >
+              </picture>
             </div>
             <p class="mb-4">En Frigorinoquia, entendemos la importancia de un control riguroso y preciso desde el momento en que su ganado llega a nuestras instalaciones. Nuestro servicio de recepción y codificación asegura que cada cliente y cada animal tengan un código único, permitiendo una trazabilidad completa a lo largo de todo el proceso.</p>
             <p class="mb-4">Desde la recepción del ganado, nuestros vaqueros capacitados, se encargan de brindar el mejor cuidado posible a cada animal, garantizando su bienestar.</p>
@@ -213,9 +481,19 @@
       'btn-service-2': {
         title: 'Servicio de Corrales',
         content: `
-          <div class="mb-6">
+          <div>
             <div class="rounded-lg overflow-hidden mb-4">
-              <img src="/images/services/corrales-detail.jpg" alt="Servicio de Corrales" class="w-full h-auto">
+              <picture>
+                <source srcset="/images/services/corrales-detail.webp" type="image/webp">
+                <img 
+                  src="/images/services/corrales-detail.jpg" 
+                  alt="Servicio de Corrales" 
+                  class="w-full h-auto"
+                  loading="lazy"
+                  width="800" 
+                  height="500"
+                >
+              </picture>
             </div>
             <p class="mb-4">En Frigorinoquia, cuidamos de cada detalle para garantizar el bienestar de sus animales. Nuestros corrales, con capacidad para 500 animales, están diseñados para brindar un espacio seguro y cómodo.</p>
             <p class="mb-4">Contamos con un equipo de vaqueros dedicados que aseguran el trato respetuoso y digno de cada animal, sin tolerar ningún tipo de maltrato. En Frigorinoquia, el cuidado de sus animales es nuestra prioridad.</p>
@@ -234,9 +512,19 @@
       'btn-service-3': {
         title: 'Servicio de Sacrificio',
         content: `
-          <div class="mb-6">
+          <div>
             <div class="rounded-lg overflow-hidden mb-4">
-              <img src="/images/services/sacrificio-detail.jpg" alt="Servicio de Sacrificio" class="w-full h-auto">
+              <picture>
+                <source srcset="/images/services/sacrificio-detail.webp" type="image/webp">
+                <img 
+                  src="/images/services/sacrificio-detail.jpg" 
+                  alt="Servicio de Sacrificio" 
+                  class="w-full h-auto"
+                  loading="lazy"
+                  width="800" 
+                  height="500"
+                >
+              </picture>
             </div>
             <p class="mb-4">En Frigorinoquia, nos enorgullece ofrecer un servicio de sacrificio que cumple con los más altos estándares de calidad y sanidad, siguiendo rigurosamente las normativas del Decreto 1500 de 2007.</p>
             <p class="mb-4">Utilizamos tecnologías de vanguardia, diseñadas por expertos, para asegurar que cada paso del proceso se realice con la máxima precisión y cuidado, garantizando la inocuidad de la carne y el bienestar de sus animales.</p>
@@ -255,9 +543,19 @@
       'btn-service-4': {
         title: 'Servicio de Cuartos Fríos',
         content: `
-          <div class="mb-6">
+          <div>
             <div class="rounded-lg overflow-hidden mb-4">
-              <img src="/images/services/cuartos-frios-detail.jpg" alt="Cuartos Fríos" class="w-full h-auto">
+              <picture>
+                <source srcset="/images/services/cuartos-frios-detail.webp" type="image/webp">
+                <img 
+                  src="/images/services/cuartos-frios-detail.jpg" 
+                  alt="Cuartos Fríos" 
+                  class="w-full h-auto"
+                  loading="lazy"
+                  width="800" 
+                  height="500"
+                >
+              </picture>
             </div>
             <p class="mb-4">En Frigorinoquia, nos preocupamos por mantener la calidad y frescura de cada corte. Nuestros cuartos fríos están diseñados para enfriar las canales a una temperatura óptima de 4°C, asegurando que la carne se refrigere adecuadamente y conserve todas sus propiedades.</p>
             <p class="mb-4">Nos encargamos de cuidar cada detalle para que nuestros clientes reciban productos de la más alta calidad, con la seguridad de que cada paso ha sido realizado con el máximo esmero y profesionalismo.</p>
@@ -276,9 +574,19 @@
       'btn-service-5': {
         title: 'Servicio de Despacho',
         content: `
-          <div class="mb-6">
+          <div>
             <div class="rounded-lg overflow-hidden mb-4">
-              <img src="/images/services/despacho-detail.jpg" alt="Servicio de Despacho" class="w-full h-auto">
+              <picture>
+                <source srcset="/images/services/despacho-detail.webp" type="image/webp">
+                <img 
+                  src="/images/services/despacho-detail.jpg" 
+                  alt="Servicio de Despacho" 
+                  class="w-full h-auto"
+                  loading="lazy"
+                  width="800" 
+                  height="500"
+                >
+              </picture>
             </div>
             <p class="mb-4">En Frigorinoquia, entendemos lo importante que es para usted recibir su producto en las mejores condiciones. Por eso, en nuestro servicio de despacho, nos encargamos de cargar cuidadosamente las canales que han sido beneficiadas, asegurándonos de que cada pieza esté en perfectas condiciones para su transporte.</p>
             <p class="mb-4">Además, para garantizar la seguridad y la tranquilidad de nuestros clientes, utilizamos precintos únicos que certifican la salida de nuestra planta. Para nosotros, su confianza es nuestra prioridad, y trabajamos cada día para ofrecer un servicio que no solo cumpla, sino que supere sus expectativas.</p>
@@ -296,42 +604,53 @@
       }
     };
     
-    // Evento para abrir el modal
-    document.querySelectorAll('[id^="btn-service-"]').forEach(button => {
+    // Referenciar elementos del DOM
+    const serviceModal = document.getElementById('service-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+    const closeModal = document.getElementById('close-modal');
+    
+    // Asegurarse de que existan todos los elementos necesarios
+    if (!serviceModal || !modalTitle || !modalContent || !closeModal) {
+      console.error('Elementos del modal no encontrados');
+      return;
+    }
+    
+    // Abrir el modal
+    document.querySelectorAll<HTMLElement>('[id^="btn-service-"]').forEach((button) => {
       button.addEventListener('click', () => {
-        const serviceId = button.id;
+        const serviceId = button.id as keyof typeof servicesData;
         const serviceData = servicesData[serviceId];
         
         if (serviceData) {
           modalTitle.textContent = serviceData.title;
           modalContent.innerHTML = serviceData.content;
-          serviceModal.classList.remove('hidden');
-          document.body.style.overflow = 'hidden'; // Prevenir scroll en el body
+          serviceModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
         }
       });
     });
     
-    // Evento para cerrar el modal
-    if (closeModal) {
-      closeModal.addEventListener('click', () => {
-        serviceModal.classList.add('hidden');
-        document.body.style.overflow = ''; // Restaurar scroll en el body
-      });
-    }
+    // Cerrar el modal con el botón
+    closeModal.addEventListener('click', () => {
+      serviceModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
     
     // Cerrar el modal al hacer clic fuera del contenido
     serviceModal.addEventListener('click', (e) => {
       if (e.target === serviceModal) {
-        serviceModal.classList.add('hidden');
+        serviceModal.classList.remove('active');
         document.body.style.overflow = '';
       }
     });
     
     // Cerrar el modal con la tecla ESC
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !serviceModal.classList.contains('hidden')) {
-        serviceModal.classList.add('hidden');
+      if (e.key === 'Escape' && serviceModal.classList.contains('active')) {
+        serviceModal.classList.remove('active');
         document.body.style.overflow = '';
       }
     });
-  </script>
+  });
+</script>
