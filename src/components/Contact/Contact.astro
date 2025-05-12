@@ -1,0 +1,326 @@
+---
+// Contact.astro
+---
+
+<section id="contacto" class="section bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="section-title">
+        <h2>Contacto</h2>
+        <p class="text-neutral-700 max-w-3xl mx-auto">Estamos aquí para responder a tus preguntas y ayudarte a encontrar la mejor solución para tus necesidades.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Formulario de contacto -->
+        <div class="bg-white rounded-lg shadow-xl p-8 reveal-from-bottom">
+          <h3 class="text-2xl font-bold mb-6 text-primary">Envíanos un mensaje</h3>
+          
+          <form id="contact-form" class="space-y-6">
+            <!-- Campo de tipo de cliente -->
+            <div>
+              <label class="block text-neutral-800 font-medium mb-2">Tipo de cliente</label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="relative">
+                  <input type="radio" id="type-distribuidor" name="client-type" value="distribuidor" class="peer hidden" checked />
+                  <label for="type-distribuidor" class="block w-full p-3 text-center border rounded-lg cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary hover:border-primary transition">
+                    Distribuidor
+                  </label>
+                </div>
+                <div class="relative">
+                  <input type="radio" id="type-productor" name="client-type" value="productor" class="peer hidden" />
+                  <label for="type-productor" class="block w-full p-3 text-center border rounded-lg cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary hover:border-primary transition">
+                    Productor
+                  </label>
+                </div>
+                <div class="relative">
+                  <input type="radio" id="type-otro" name="client-type" value="otro" class="peer hidden" />
+                  <label for="type-otro" class="block w-full p-3 text-center border rounded-lg cursor-pointer peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary hover:border-primary transition">
+                    Otro
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Nombre y Email -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-neutral-800 font-medium mb-2">Nombre completo</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Tu nombre"
+                  required
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-neutral-800 font-medium mb-2">Correo electrónico</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="tu@email.com"
+                  required
+                />
+              </div>
+            </div>
+            
+            <!-- Teléfono y Asunto -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="phone" class="block text-neutral-800 font-medium mb-2">Teléfono</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Tu número de teléfono"
+                />
+              </div>
+              <div>
+                <label for="subject" class="block text-neutral-800 font-medium mb-2">Asunto</label>
+                <select 
+                  id="subject" 
+                  name="subject" 
+                  class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none bg-white"
+                  required
+                >
+                  <option value="" disabled selected>Selecciona un asunto</option>
+                  <option value="informacion">Solicitud de información</option>
+                  <option value="cotizacion">Solicitud de cotización</option>
+                  <option value="servicio">Servicio al cliente</option>
+                  <option value="reclamo">Reclamo</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- Mensaje -->
+            <div>
+              <label for="message" class="block text-neutral-800 font-medium mb-2">Mensaje</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="5" 
+                class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                placeholder="¿En qué podemos ayudarte?"
+                required
+              ></textarea>
+            </div>
+            
+            <!-- Política de privacidad -->
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input 
+                  id="privacy" 
+                  name="privacy" 
+                  type="checkbox" 
+                  class="w-4 h-4 border border-neutral-300 rounded"
+                  required
+                />
+              </div>
+              <div class="ml-3 text-sm">
+                <label for="privacy" class="text-neutral-700">
+                  Acepto la <a href="#" class="text-primary hover:underline">política de privacidad</a> y el tratamiento de mis datos.
+                </label>
+              </div>
+            </div>
+            
+            <!-- Botón de envío -->
+            <div>
+              <button 
+                type="submit" 
+                class="w-full btn-primary py-3 px-6 text-center font-medium"
+              >
+                Enviar mensaje
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Información de contacto y mapa -->
+        <div class="space-y-8">
+          <!-- Tarjeta de información de contacto -->
+          <div class="bg-white rounded-lg shadow-lg p-8 reveal-from-bottom" style="transition-delay: 0.1s">
+            <h3 class="text-2xl font-bold mb-6 text-primary">Información de contacto</h3>
+            
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mr-4 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg mb-1">Dirección</h4>
+                  <p class="text-neutral-700">Km 2 Vía Tauramena - Monterrey<br />Tauramena, Casanare, Colombia</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mr-4 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg mb-1">Teléfonos</h4>
+                  <p class="text-neutral-700">
+                    (+57) 123 456 7890<br />
+                    (+57) 098 765 4321
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mr-4 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg mb-1">Email</h4>
+                  <p class="text-neutral-700">
+                    contacto@frigorinoquia.com<br />
+                    info@frigorinoquia.com
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mr-4 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-lg mb-1">Horario de atención</h4>
+                  <p class="text-neutral-700">
+                    Lunes - Viernes: 8:00 AM - 5:00 PM<br />
+                    Sábado: 8:00 AM - 12:00 PM<br />
+                    Domingo: Cerrado
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mapa interactivo -->
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden h-[400px] reveal-from-bottom" style="transition-delay: 0.2s">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63773.30182033126!2d-72.76944936069947!3d5.015386241889861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6ad3823a1303d9%3A0x8f26b8472ea808f!2sTauramena%2C%20Casanare!5e0!3m2!1ses!2sco!4v1715532381972!5m2!1ses!2sco" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Preguntas frecuentes -->
+      <div class="mt-16">
+        <h3 class="text-2xl font-bold text-center mb-8">Preguntas frecuentes</h3>
+        
+        <div class="max-w-3xl mx-auto">
+          <div class="space-y-4">
+            <!-- Pregunta 1 -->
+            <div class="border border-neutral-200 rounded-lg reveal-from-bottom" style="transition-delay: 0.3s">
+              <button class="faq-button flex justify-between items-center w-full p-4 text-left" aria-expanded="false">
+                <span class="font-bold">¿Cuál es el horario de recepción de ganado?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-content hidden px-4 pb-4">
+                <p class="text-neutral-700">Nuestro horario de recepción de ganado es de lunes a viernes de 6:00 AM a 4:00 PM y sábados de 6:00 AM a 10:00 AM. Es importante agendar previamente para garantizar un servicio óptimo.</p>
+              </div>
+            </div>
+            
+            <!-- Pregunta 2 -->
+            <div class="border border-neutral-200 rounded-lg reveal-from-bottom" style="transition-delay: 0.4s">
+              <button class="faq-button flex justify-between items-center w-full p-4 text-left" aria-expanded="false">
+                <span class="font-bold">¿Qué documentos debo presentar para el beneficio de animales?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-content hidden px-4 pb-4">
+                <p class="text-neutral-700">Los documentos necesarios incluyen: guía de movilización vigente, certificado de vacunación, documento de identidad del propietario o carta de autorización del propietario, y comprobante de pago del servicio de sacrificio.</p>
+              </div>
+            </div>
+            
+            <!-- Pregunta 3 -->
+            <div class="border border-neutral-200 rounded-lg reveal-from-bottom" style="transition-delay: 0.5s">
+              <button class="faq-button flex justify-between items-center w-full p-4 text-left" aria-expanded="false">
+                <span class="font-bold">¿Cuánto tiempo dura el proceso de beneficio?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-content hidden px-4 pb-4">
+                <p class="text-neutral-700">El proceso completo desde la recepción hasta el despacho suele tomar entre 24 y 48 horas, dependiendo del volumen de trabajo y las condiciones específicas. El tiempo de refrigeración recomendado es de al menos 12 horas para asegurar la calidad óptima de la carne.</p>
+              </div>
+            </div>
+            
+            <!-- Pregunta 4 -->
+            <div class="border border-neutral-200 rounded-lg reveal-from-bottom" style="transition-delay: 0.6s">
+              <button class="faq-button flex justify-between items-center w-full p-4 text-left" aria-expanded="false">
+                <span class="font-bold">¿Ofrecen servicios de transporte para la carne procesada?</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon h-5 w-5 text-primary transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div class="faq-content hidden px-4 pb-4">
+                <p class="text-neutral-700">No ofrecemos directamente servicios de transporte, pero podemos recomendar transportadores certificados que cumplen con todas las normativas sanitarias para el traslado de productos cárnicos. Estos servicios se contratan de manera independiente por parte del cliente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Gestionar el formulario de contacto
+      const contactForm = document.getElementById('contact-form');
+      
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          // Aquí se implementaría la lógica de envío del formulario
+          // Por ahora, solo mostraremos un mensaje de éxito simulado
+          
+          alert('Tu mensaje ha sido enviado correctamente. Te contactaremos pronto.');
+          contactForm.reset();
+        });
+      }
+      
+      // Gestionar las preguntas frecuentes
+      const faqButtons = document.querySelectorAll('.faq-button');
+      
+      faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const content = button.nextElementSibling;
+          const icon = button.querySelector('.faq-icon');
+          
+          // Alternar la visibilidad del contenido
+          if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            button.setAttribute('aria-expanded', 'true');
+            icon.classList.add('rotate-180');
+          } else {
+            content.classList.add('hidden');
+            button.setAttribute('aria-expanded', 'false');
+            icon.classList.remove('rotate-180');
+          }
+        });
+      });
+    });
+  </script>

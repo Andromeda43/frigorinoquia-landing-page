@@ -1,0 +1,398 @@
+---
+// About.astro - Componente de información sobre la empresa (Espaciado equilibrado)
+---
+
+<section id="nosotros" class="about-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Sobre Frigorinoquia</h2>
+      <p class="section-description">Conoce nuestra trayectoria y compromiso con la excelencia en la industria cárnica.</p>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-text">
+        <h3 class="about-title">Nuestra Historia</h3>
+        <p>En <strong>Frigorinoquia</strong>, nos enorgullece ser una <strong>planta de beneficio animal de nivel nacional</strong>, operando bajo los más altos estándares de calidad y sanidad establecidos por el <strong>Decreto 1500</strong>.</p>
+        <div class="highlight-text">
+          <p>Nuestra <strong>misión</strong> es ofrecer un servicio excepcional que garantice la <strong>seguridad</strong>, <strong>frescura</strong> y <strong>trazabilidad</strong> de cada producto que procesamos.</p>
+        </div>
+        <p>Aquí, cada detalle cuenta: desde el <strong>bienestar de los animales</strong> hasta la <strong>satisfacción de nuestros clientes</strong>.</p>
+        <p>Con una <strong>infraestructura moderna</strong> y un <strong>equipo comprometido</strong>, Frigorinoquia no solo cumple con las normativas nacionales, sino que se esfuerza por <strong>superar las expectativas</strong>, asegurando que cada paso de nuestro proceso esté impregnado de dedicación, respeto y profesionalismo.</p>
+      </div>
+      
+      <div class="about-card">
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h4>Misión</h4>
+            <p>Brindar servicios de beneficio animal de alta calidad que garanticen seguridad, frescura y trazabilidad completa.</p>
+          </div>
+          
+          <div class="value-item">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h4>Visión</h4>
+            <p>Ser reconocidos como la planta de beneficio animal líder en Colombia por excelencia, innovación y compromiso con la calidad.</p>
+          </div>
+          
+          <div class="value-item">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+            <h4>Trazabilidad</h4>
+            <p>Sistema integral de seguimiento desde la recepción hasta el despacho final del producto.</p>
+          </div>
+          
+          <div class="value-item">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+              </svg>
+            </div>
+            <h4>Bienestar Animal</h4>
+            <p>Compromiso con el trato ético y respetuoso en cada etapa del proceso.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos para la sección About */
+  .about-section {
+    padding: 4rem 0;
+    background-color: #F3F4F6;
+    box-sizing: border-box; /* Asegurar que el padding se incluye en el ancho */
+    overflow-x: hidden; /* Prevenir scroll horizontal */
+    width: 100%;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Padding base */
+    box-sizing: border-box; /* Asegurar que el padding se incluye en el ancho */
+  }
+  
+  /* Para garantizar que los elementos no se desborden en móviles */
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 1.25rem; /* Más padding en pantallas muy pequeñas */
+    }
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .section-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-header h2::after {
+    content: '';
+    display: block;
+    width: 4rem;
+    height: 0.25rem;
+    background-color: #BE123C;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -0.75rem;
+  }
+  
+  .section-description {
+    max-width: 48rem;
+    margin: 0 auto;
+    color: #4B5563;
+  }
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem; /* Reducido de 3rem para mejor espaciado */
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  /* Mejoras estéticas para el texto */
+  .about-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1E3A8A;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(30, 58, 138, 0.2);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+  }
+  
+  .about-text {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .about-text p {
+    margin-bottom: 1.25rem;
+    color: #1F2937;
+    line-height: 1.7;
+    font-size: 1.05rem;
+  }
+  
+  .about-text strong {
+    color: #111827;
+    font-weight: 700;
+  }
+  
+  .highlight-text {
+    border-left: 4px solid #1E3A8A;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    background-color: rgba(30, 58, 138, 0.05);
+    padding: 1rem 1rem 1rem 1.5rem;
+    border-radius: 0 0.25rem 0.25rem 0;
+  }
+  
+  .highlight-text p {
+    margin-bottom: 0;
+    font-style: italic;
+  }
+  
+  /* Mejora del padding en la tarjeta */
+  .about-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 1.75rem 1.5rem; /* Padding reducido para móviles */
+    border-top: 4px solid #1E3A8A;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    width: 100%;
+  }
+  
+  .value-item {
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .value-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+  
+  .value-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgba(30, 58, 138, 0.1);
+    color: #1E3A8A;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .value-item:hover .value-icon {
+    background-color: rgba(30, 58, 138, 0.2);
+    transform: scale(1.05);
+  }
+  
+  .value-icon svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .value-item h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #111827;
+  }
+  
+  .value-item p {
+    color: #4B5563;
+    line-height: 1.5;
+    word-wrap: break-word; /* Asegura que el texto largo se corte */
+  }
+  
+  /* Media queries para responsividad */
+  @media (min-width: 480px) {
+    .about-card {
+      padding: 2rem;
+    }
+  }
+  
+  @media (min-width: 580px) {
+    .about-card {
+      padding: 2.25rem;
+    }
+  }
+  
+  @media (min-width: 640px) {
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; /* Gap más pequeño en pantallas medianas */
+    }
+    
+    .about-card {
+      padding: 2rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .section-header h2 {
+      font-size: 2.25rem;
+    }
+    
+    .about-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem; /* Gap reducido para mejor equilibrio */
+    }
+    
+    .about-card {
+      padding: 2rem; /* Padding reducido para mejor equilibrio */
+    }
+    
+    .container {
+      padding: 0 1.5rem; /* Reducido de 2rem para mejor equilibrio */
+    }
+    
+    .values-grid {
+      gap: 1.5rem; /* Gap más pequeño para mejor equilibrio */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-header h2 {
+      font-size: 2.5rem;
+    }
+    
+    .about-title {
+      font-size: 1.75rem;
+    }
+    
+    .values-grid {
+      gap: 1.75rem; /* Gap reducido de 2rem */
+    }
+    
+    .about-card {
+      padding: 2.25rem; /* Reducido de 2.5rem */
+    }
+    
+    .container {
+      padding: 0 2rem; /* Reducido de 2.5rem */
+    }
+    
+    .about-content {
+      gap: 2rem; /* Gap reducido para mejor equilibrio */
+    }
+  }
+  
+  /* Pantallas extra grandes */
+  @media (min-width: 1280px) {
+    .about-content {
+      gap: 2.5rem;
+    }
+    
+    .about-card {
+      /* Asegurar que la tarjeta ocupe todo el espacio disponible */
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .values-grid {
+      /* Mejor distribución en pantallas muy grandes */
+      gap: 2rem;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    /* Pantallas de 16" o más grandes */
+    .container {
+      max-width: 80%; /* Reduce el ancho máximo del contenedor en pantallas muy grandes */
+    }
+    
+    .about-content {
+      gap: 3rem;
+    }
+  }
+  
+  /* Animaciones */
+  .about-text, .about-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .about-text.animate, .about-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Añadimos un pequeño retraso a la animación de la tarjeta */
+  .about-card {
+    transition-delay: 0.2s;
+  }
+</style>
+
+<script>
+  // Script para activar animaciones en scroll
+  document.addEventListener('DOMContentLoaded', function() {
+    const aboutText = document.querySelector('.about-text');
+    const aboutCard = document.querySelector('.about-card');
+    
+    function checkScroll() {
+      const triggerBottom = window.innerHeight * 0.8;
+      
+      if (aboutText) {
+        const textTop = aboutText.getBoundingClientRect().top;
+        if (textTop < triggerBottom) {
+          aboutText.classList.add('animate');
+        }
+      }
+      
+      if (aboutCard) {
+        const cardTop = aboutCard.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+          aboutCard.classList.add('animate');
+        }
+      }
+    }
+    
+    // Comprobar posiciones inicialmente
+    checkScroll();
+    
+    // Comprobar en scroll
+    window.addEventListener('scroll', checkScroll);
+  });
+</script>

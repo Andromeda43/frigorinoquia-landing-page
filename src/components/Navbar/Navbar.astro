@@ -1,0 +1,84 @@
+---
+// Navbar.astro - Componente de navegación
+---
+
+<header style="position: fixed; top: 0; left: 0; right: 0; background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); z-index: 50; transition: all 0.3s; padding: 1rem 0;">
+    <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center;">
+      <a href="/" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="/images/logo.svg" alt="Frigorinoquia" style="height: 40px; width: auto;" />
+      </a>
+      
+      <nav style="display: none;">
+        <a href="#inicio" style="margin-left: 2rem; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none; transition: color 0.3s;">Inicio</a>
+        <a href="#nosotros" style="margin-left: 2rem; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none; transition: color 0.3s;">Nosotros</a>
+        <a href="#servicios" style="margin-left: 2rem; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none; transition: color 0.3s;">Servicios</a>
+        <a href="#impacto" style="margin-left: 2rem; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none; transition: color 0.3s;">Impacto Regional</a>
+        <a href="#testimonios" style="margin-left: 2rem; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none; transition: color 0.3s;">Testimonios</a>
+        <a href="#contacto" style="margin-left: 2rem; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none; transition: color 0.3s;">Contacto</a>
+      </nav>
+      
+      <button id="mobile-menu-button" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #1F2937;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" style="display: none; padding: 1rem 0; background-color: white;">
+      <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; flex-direction: column;">
+        <a href="#inicio" style="display: block; padding: 0.5rem 0; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none;">Inicio</a>
+        <a href="#nosotros" style="display: block; padding: 0.5rem 0; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none;">Nosotros</a>
+        <a href="#servicios" style="display: block; padding: 0.5rem 0; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none;">Servicios</a>
+        <a href="#impacto" style="display: block; padding: 0.5rem 0; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none;">Impacto Regional</a>
+        <a href="#testimonios" style="display: block; padding: 0.5rem 0; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none;">Testimonios</a>
+        <a href="#contacto" style="display: block; padding: 0.5rem 0; font-family: 'Montserrat', sans-serif; color: #1F2937; text-decoration: none;">Contacto</a>
+      </div>
+    </div>
+  </header>
+  
+  <style>
+    @media (min-width: 1024px) {
+      header nav {
+        display: flex !important;
+      }
+      
+      header #mobile-menu-button {
+        display: none !important;
+      }
+    }
+    
+    header a:hover {
+      color: #1E3A8A !important;
+    }
+  </style>
+  
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        const isVisible = mobileMenu.style.display === 'block';
+        mobileMenu.style.display = isVisible ? 'none' : 'block';
+      });
+    }
+    
+    // Shrink header on scroll
+    const header = document.querySelector('header');
+    
+    if (header) {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          header.style.padding = '0.5rem 0';
+        } else {
+          header.style.padding = '1rem 0';
+        }
+      };
+      
+      window.addEventListener('scroll', handleScroll);
+      // Llamar una vez al inicio para establecer el estado correcto
+      handleScroll();
+    }
+  </script>
