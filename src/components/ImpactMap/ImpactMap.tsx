@@ -30,13 +30,13 @@ const ImpactMap: React.FC = () => {
       name: "Tauramena",
       coordinates: { lat: 5.0153, lng: -72.7522 },
       department: "Casanare",
-      customers: 54
+      customers: 5
     },
     {
       name: "Monterrey",
       coordinates: { lat: 4.8789, lng: -72.8951 },
       department: "Casanare",
-      customers: 15
+      customers: 1
     },
     {
       name: "Aguazul",
@@ -103,7 +103,196 @@ const ImpactMap: React.FC = () => {
       coordinates: { lat: 6.2476, lng: -75.5658 },
       department: "Antioquia",
       customers: 1
+    },
+    {
+    name: "Sogamoso",
+    coordinates: { lat: 5.7143, lng: -72.9333 },
+    department: "Boyacá",
+    customers: 2
+    },
+    {
+    name: "Tunja",
+    coordinates: { lat: 5.5353, lng: -73.3678 },
+    department: "Boyacá",
+    customers: 4
+    },
+    {
+    name: "Paz de Ariporo",
+    coordinates: { lat: 5.8825, lng: -71.8919 },
+    department: "Casanare",
+    customers: 9
+    },
+    {
+    name: "Tame",
+    coordinates: { lat: 6.4603, lng: -71.7361 },
+    department: "Arauca",
+    customers: 2
+    },
+    {
+    name: "Saravena",
+    coordinates: { lat: 6.9541, lng: -71.8764 },
+    department: "Arauca",
+    customers: 1
+    },
+    {
+    name: "Puerto Rondón",
+    coordinates: { lat: 6.2799, lng: -71.0991 },
+    department: "Arauca",
+    customers: 4
+    },
+    {
+    name: "La Salina",
+    coordinates: { lat: 6.12811, lng: -72.3343 },
+    department: "Casanare",
+    customers: 1
+    },
+    {
+    name: "Nunchía",
+    coordinates: { lat: 5.6374, lng: -72.1948 },
+    department: "Casanare",
+    customers: 3
+    },
+    {
+    name: "Maní",
+    coordinates: { lat: 4.8172, lng: -72.2803 },
+    department: "Casanare",
+    customers: 7
+    },
+    {
+    name: "Pore",
+    coordinates: { lat: 5.7217, lng: -71.9908 },
+    department: "Casanare",
+    customers: 5
+    },
+    {
+    name: "Hato Corozal",
+    coordinates: { lat: 6.1547, lng: -71.7667 },
+    department: "Casanare",
+    customers: 6
+    },
+    {
+    name: "Puerto Gaitán",
+    coordinates: { lat: 4.3122, lng: -72.0828 },
+    department: "Meta",
+    customers: 1
+    },
+    {
+    name: "Cabuyaro",
+    coordinates: { lat: 4.2836, lng: -72.7875 },
+    department: "Meta",
+    customers: 5
+    },
+    {
+    name: "Puerto López",
+    coordinates: { lat: 4.0881, lng: -72.9560 },
+    department: "Meta",
+    customers: 2
+    },
+    {
+    name: "Villavicencio",
+    coordinates: { lat: 4.1420, lng: -73.6266 },
+    department: "Meta",
+    customers: 5
+    },
+    {
+    name: "San Martín",
+    coordinates: { lat: 3.6981, lng: -73.6894 },
+    department: "Meta",
+    customers: 1
+    },
+    {
+    name: "Granada",
+    coordinates: { lat: 3.5444, lng: -73.7086 },
+    department: "Meta",
+    customers: 3
+    },
+    {
+    name: "Lejanías",
+    coordinates: { lat: 3.5286, lng: -74.0236 },
+    department: "Meta",
+    customers: 8
+    },
+    {
+    name: "Vista Hermosa",
+    coordinates: { lat: 3.1242, lng: -73.7528 },
+    department: "Meta",
+    customers: 1
+    },
+    {
+    name: "Barranca de Upía",
+    coordinates: { lat: 4.5641, lng: -72.9610 },
+    department: "Meta",
+    customers: 1
+    },
+    {
+    name: "San Luis de Palenque",
+    coordinates: { lat: 5.3894, lng: -71.9006 },
+    department: "Casanare",
+    customers: 1
+    },
+    {
+    name: "Arauquita",
+    coordinates: { lat: 7.0278, lng: -71.4281 },
+    department: "Arauca",
+    customers: 1
+    },
+    {
+    name: "Fortul",
+    coordinates: { lat: 6.7959, lng: -71.7705 },
+    department: "Arauca",
+    customers: 1
+    },
+    {
+    name: "Santa Rosalía",
+    coordinates: { lat: 5.1414, lng: -70.8580 },
+    department: "Vichada",
+    customers: 1
+    },
+    {
+    name: "Aquitania",
+    coordinates: { lat: 5.5194, lng: -72.8869 },
+    department: "Boyacá",
+    customers: 1
+    },
+    {
+    name: "Tota",
+    coordinates: { lat: 5.5528, lng: -72.9853 },
+    department: "Boyacá",
+    customers: 2
+    },
+    {
+    name: "Ibagué",
+    coordinates: { lat: 4.4389, lng: -75.2322 },
+    department: "Tolima",
+    customers: 4
+    },
+    {
+    name: "Cajamarca",
+    coordinates: { lat: 4.4378, lng: -75.4267 },
+    department: "Tolima",
+    customers: 6
+    },
+    {
+    name: "Armenia",
+    coordinates: { lat: 4.5339, lng: -75.6811 },
+    department: "Quindío",
+    customers: 3
+    },
+    {
+    name: "El Espinal",
+    coordinates: { lat: 4.1499, lng: -74.8847 },
+    department: "Tolima",
+    customers: 1
+    },
+    {
+    name: "Bucaramanga",
+    coordinates: { lat: 7.1193, lng: -73.1227 },
+    department: "Santander",
+    customers: 1
     }
+      
+      
+    
   ];
   
   // Organizar los clientes para que la planta aparezca al final (encima de los demás)
