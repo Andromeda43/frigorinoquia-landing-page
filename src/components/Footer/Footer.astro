@@ -1,72 +1,429 @@
 ---
-// Footer.astro - Componente de pie de página
+// Footer.astro - Componente mejorado para el pie de página
 ---
 
-<footer style="background-color: #111827; color: white; padding: 3rem 0;">
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
-        <div>
-          <img src="/images/logo-white.svg" alt="Frigorinoquia" style="height: 40px; width: auto; margin-bottom: 1rem;" />
-          <p style="color: #D1D5DB; margin-bottom: 1rem;">Planta de beneficio animal de nivel nacional operando bajo los más altos estándares de calidad y sanidad establecidos por el Decreto 1500.</p>
-          <div style="display: flex; gap: 1rem;">
-            <a href="#" style="color: #D1D5DB; transition: color 0.3s;">
-              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
-            <a href="#" style="color: #D1D5DB; transition: color 0.3s;">
-              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
-          </div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Columna logo e información principal -->
+      <div class="footer-brand">
+        <img src="/images/logo-white.svg" alt="Frigorinoquia" class="footer-logo" />
+        <p class="footer-description">
+          Planta de beneficio animal de nivel nacional operando bajo los más altos estándares de calidad y sanidad establecidos por el Decreto 1500.
+        </p>
+        <div class="footer-social">
+          <a href="#" class="footer-social-link" aria-label="Facebook">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Instagram">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a href="https://wa.me/573107652282" class="footer-social-link" aria-label="WhatsApp">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
         </div>
         
-        <div>
-          <h3 style="font-size: 1.25rem; font-weight: 700; font-family: 'Montserrat', sans-serif; margin-bottom: 1rem;">Contacto</h3>
-          <div style="display: flex; align-items: flex-start; color: #D1D5DB; margin-bottom: 0.5rem;">
-            <svg style="margin-right: 0.5rem; margin-top: 0.25rem; flex-shrink: 0;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-            </svg>
-            <span>Km 2 Vía Tauramena - Monterrey<br />Tauramena, Casanare, Colombia</span>
-          </div>
-          <div style="display: flex; align-items: flex-start; color: #D1D5DB; margin-bottom: 0.5rem;">
-            <svg style="margin-right: 0.5rem; margin-top: 0.25rem; flex-shrink: 0;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-            </svg>
-            <span>(+57) 123 456 7890</span>
-          </div>
-          <div style="display: flex; align-items: flex-start; color: #D1D5DB; margin-bottom: 0.5rem;">
-            <svg style="margin-right: 0.5rem; margin-top: 0.25rem; flex-shrink: 0;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-            </svg>
-            <span>contacto@frigorinoquia.com</span>
-          </div>
-        </div>
-        
-        <div>
-          <h3 style="font-size: 1.25rem; font-weight: 700; font-family: 'Montserrat', sans-serif; margin-bottom: 1rem;">Horarios</h3>
-          <p style="color: #D1D5DB; margin-bottom: 0.5rem;">Lunes - Viernes: 8:00 AM - 5:00 PM</p>
-          <p style="color: #D1D5DB; margin-bottom: 0.5rem;">Sábado: 8:00 AM - 12:00 PM</p>
-          <p style="color: #D1D5DB; margin-bottom: 0.5rem;">Domingo: Cerrado</p>
+        <div class="footer-certification">
+          <span class="footer-badge">Código de Planta 266B</span>
+          <span class="footer-badge">INVIMA Autorizado</span>
         </div>
       </div>
       
-      <div style="border-top: 1px solid #374151; margin-top: 2rem; padding-top: 2rem;">
-        <p style="color: #9CA3AF; text-align: center;">&copy; {new Date().getFullYear()} Frigorinoquia. Todos los derechos reservados.</p>
+      <!-- Columna de contacto y dirección -->
+      <div class="footer-contact">
+        <h3 class="footer-title">Contacto</h3>
+        <ul class="footer-info-list">
+          <li class="footer-info-item">
+            <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+            <span>KM 1.5 VÍA ANTIGUA A LA VIRGEN<br />Tauramena, Casanare, Colombia</span>
+          </li>
+          <li class="footer-info-item">
+            <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+            </svg>
+            <div class="footer-contact-links">
+              <a href="https://wa.me/573107652282" class="footer-link">+57 310 765 2282</a>
+              <a href="https://wa.me/573224534652" class="footer-link">+57 322 453 4652</a>
+            </div>
+          </li>
+          <li class="footer-info-item">
+            <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
+            <div class="footer-contact-links">
+              <a href="mailto:informacion@frigorinoquia.com" class="footer-link">informacion@frigorinoquia.com</a>
+              <a href="mailto:frigorinoquiasas@gmail.com" class="footer-link">frigorinoquiasas@gmail.com</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Columna de enlaces rápidos -->
+      <div class="footer-links">
+        <h3 class="footer-title">Enlaces rápidos</h3>
+        <ul class="footer-menu">
+          <li>
+            <a href="#inicio" class="footer-menu-link">Inicio</a>
+          </li>
+          <li>
+            <a href="#nosotros" class="footer-menu-link">Nosotros</a>
+          </li>
+          <li>
+            <a href="#servicios" class="footer-menu-link">Servicios</a>
+          </li>
+          <li>
+            <a href="#normativa" class="footer-menu-link">Normatividad</a>
+          </li>
+          <li>
+            <a href="#contacto" class="footer-menu-link">Contacto</a>
+          </li>
+        </ul>
+        
+        <div class="footer-schedule">
+          <h4 class="footer-subtitle">Horarios</h4>
+          <p class="footer-text">Lunes - Viernes: 7:00 AM - 5:00 PM</p>
+          <p class="footer-text">Sábado: 7:00 AM - 12:00 PM</p>
+        </div>
       </div>
     </div>
-  </footer>
+    
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; {new Date().getFullYear()} Frigorinoquia S.A.S. Todos los derechos reservados.</p>
+      <div class="footer-bottom-links">
+        <a href="#" class="footer-small-link">Política de privacidad</a>
+        <span class="footer-divider">|</span>
+        <a href="#" class="footer-small-link">Términos y condiciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Estilos base del footer */
+  .footer {
+    background-color: #111827;
+    color: #E5E7EB;
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
   
-  <style>
-    @media (min-width: 768px) {
-      footer > div > div {
-        grid-template-columns: repeat(3, 1fr) !important;
-      }
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #1E3A8A, #3B82F6);
+    z-index: 1;
+  }
+  
+  .footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+  }
+  
+  /* Grid principal */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  /* Sección de logo e información principal */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .footer-logo {
+    height: 40px;
+    width: auto;
+    margin-bottom: 1.25rem;
+    object-fit: contain;
+  }
+  
+  .footer-description {
+    color: #9CA3AF;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    max-width: 90%;
+  }
+  
+  /* Badges de certificación */
+  .footer-certification {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  
+  .footer-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(30, 58, 138, 0.25);
+    color: #60A5FA;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+  
+  /* Redes sociales */
+  .footer-social {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-social-link {
+    color: #9CA3AF;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .footer-social-link:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  /* Títulos de secciones */
+  .footer-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+  }
+  
+  .footer-title::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #F97316;
+    margin-top: 0.5rem;
+  }
+  
+  .footer-subtitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    margin: 1.5rem 0 1rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Lista de información de contacto */
+  .footer-info-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .footer-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: #9CA3AF;
+    line-height: 1.6;
+  }
+  
+  .footer-icon {
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+  
+  .footer-contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  
+  .footer-link {
+    color: #9CA3AF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-link:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* Menú de enlaces */
+  .footer-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  
+  .footer-menu li {
+    margin-bottom: 0.75rem;
+    break-inside: avoid;
+  }
+  
+  .footer-menu-link {
+    color: #9CA3AF;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .footer-menu-link::before {
+    content: '•';
+    color: #F97316;
+    margin-right: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 0;
+    position: relative;
+    top: 0.1rem;
+    opacity: 0;
+    transform: translateX(-0.5rem);
+    transition: all 0.3s ease;
+  }
+  
+  .footer-menu-link:hover {
+    color: white;
+    padding-left: 0.5rem;
+  }
+  
+  .footer-menu-link:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* Horarios */
+  .footer-schedule {
+    margin-top: 1.5rem;
+  }
+  
+  .footer-text {
+    color: #9CA3AF;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  /* Sección inferior */
+  .footer-bottom {
+    border-top: 1px solid #1F2937;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .footer-copyright {
+    color: #6B7280;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  
+  .footer-bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .footer-small-link {
+    color: #6B7280;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-small-link:hover {
+    color: white;
+  }
+  
+  .footer-divider {
+    color: #4B5563;
+  }
+  
+  /* Media queries */
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
     
-    footer a:hover {
-      color: white !important;
+    .footer-brand {
+      grid-column: span 2;
     }
-  </style>
+    
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+    
+    .footer-brand {
+      grid-column: span 1;
+    }
+    
+    .footer-description {
+      max-width: 85%;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .footer {
+      padding: 3rem 0 1.5rem;
+    }
+    
+    .footer-title, .footer-subtitle {
+      font-size: 1.125rem;
+    }
+    
+    .footer-social {
+      gap: 1rem;
+    }
+    
+    .footer-menu {
+      columns: 1;
+    }
+    
+    .footer-certification {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

@@ -1,0 +1,523 @@
+---
+// FAQ.astro - Componente independiente para preguntas frecuentes
+---
+
+<section id="faq" class="faq-section">
+    <div class="faq-container">
+      <div class="faq-header">
+        <h2>Preguntas Frecuentes</h2>
+        <p>Respuestas a las consultas más comunes sobre nuestros servicios y procesos</p>
+      </div>
+      
+      <div class="faq-wrapper">
+        <div class="faq-list">
+          <!-- Pregunta 1 -->
+          <div class="faq-item">
+            <button class="faq-button" aria-expanded="false">
+              <span>¿Cuál es el horario de recepción de ganado?</span>
+              <div class="faq-icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-content">
+              <p>Nuestro horario de recepción de ganado es de lunes a viernes de 7:00 AM a 5:00 PM y sábados de 7:00 AM a 1:00 PM. Es importante agendar previamente para garantizar un servicio óptimo.</p>
+            </div>
+          </div>
+          
+          <!-- Pregunta 2 -->
+          <div class="faq-item">
+            <button class="faq-button" aria-expanded="false">
+              <span>¿Qué documentos debo presentar para el beneficio de animales?</span>
+              <div class="faq-icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-content">
+              <p>Los documentos necesarios incluyen:</p>
+              <ul>
+                <li>Guía de movilización vigente</li>
+                <li>Documento de identidad del propietario</li>
+                <li>Comprobante de pago del servicio de sacrificio</li>
+              </ul>
+              <p>Todos estos documentos son requeridos por la normatividad vigente y garantizan la trazabilidad del proceso.</p>
+            </div>
+          </div>
+          
+          <!-- Pregunta 3 -->
+          <div class="faq-item">
+            <button class="faq-button" aria-expanded="false">
+              <span>¿Cuánto tiempo dura el proceso de beneficio?</span>
+              <div class="faq-icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-content">
+              <p>El proceso completo desde la recepción hasta el despacho suele tomar entre 24 y 48 horas, dependiendo del volumen de trabajo y las condiciones específicas. El tiempo de refrigeración recomendado es de al menos 12 horas para asegurar la calidad óptima de la carne.</p>
+            </div>
+          </div>
+          
+          <!-- Pregunta 4 -->
+          <div class="faq-item">
+            <button class="faq-button" aria-expanded="false">
+              <span>¿Ofrecen servicios de transporte para la carne procesada?</span>
+              <div class="faq-icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-content">
+              <p>No ofrecemos directamente servicios de transporte, pero podemos recomendar transportadores certificados que cumplen con todas las normativas sanitarias para el traslado de productos cárnicos. Estos servicios se contratan de manera independiente por parte del cliente.</p>
+            </div>
+          </div>
+          
+          <!-- Pregunta 5 -->
+          <div class="faq-item">
+            <button class="faq-button" aria-expanded="false">
+              <span>¿Qué certificaciones tiene la planta?</span>
+              <div class="faq-icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-content">
+              <p>Nuestra planta cuenta con autorización sanitaria del INVIMA, código 266B, y cumple con todos los requisitos establecidos en el Decreto 1500 de 2007 y sus resoluciones complementarias. Esto nos permite realizar operaciones de beneficio animal con los más altos estándares de calidad e inocuidad para la comercialización a nivel nacional.</p>
+            </div>
+          </div>
+          
+          <!-- Pregunta 6 -->
+          <div class="faq-item">
+            <button class="faq-button" aria-expanded="false">
+              <span>¿Qué servicios adicionales ofrecen?</span>
+              <div class="faq-icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+            <div class="faq-content">
+              <p>Además del servicio básico de beneficio animal, ofrecemos:</p>
+              <ul>
+                <li>Asesoría técnica en buenas prácticas ganaderas</li>
+                <li>Refrigeración extendida según requerimientos específicos</li>
+                <li>Generación de informes detallados de rendimiento</li>
+                <li>Coordinación con compradores potenciales para productores</li>
+              </ul>
+              <p>Para más información sobre estos servicios adicionales, puede contactarnos directamente.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-cta">
+          <div class="faq-cta-content">
+            <div class="faq-cta-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3>¿Tienes más preguntas?</h3>
+            <p>Si no encuentras la respuesta que buscas, no dudes en contactarnos. Nuestro equipo está listo para atender todas tus consultas.</p>
+            <a href="#contacto" class="faq-cta-button">Contáctanos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Estilos base de la sección */
+    .faq-section {
+      padding: 5rem 0;
+      background-color: #F8FAFC;
+      position: relative;
+    }
+    
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, #1E3A8A, #3B82F6);
+    }
+    
+    .faq-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    /* Encabezado de sección */
+    .faq-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    
+    .faq-header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1E3A8A;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .faq-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: #F97316;
+    }
+    
+    .faq-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #4B5563;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      font-family: 'Merriweather', serif;
+    }
+    
+    /* Wrapper principal */
+    .faq-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .faq-wrapper {
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+      }
+    }
+    
+    /* Lista de preguntas */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    /* Elemento de pregunta */
+    .faq-item {
+      background-color: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: faqFadeIn 0.6s ease forwards;
+    }
+    
+    .faq-item:nth-child(1) { animation-delay: 0.1s; }
+    .faq-item:nth-child(2) { animation-delay: 0.2s; }
+    .faq-item:nth-child(3) { animation-delay: 0.3s; }
+    .faq-item:nth-child(4) { animation-delay: 0.4s; }
+    .faq-item:nth-child(5) { animation-delay: 0.5s; }
+    .faq-item:nth-child(6) { animation-delay: 0.6s; }
+    
+    .faq-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Botón de pregunta */
+    .faq-button {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem;
+      background-color: white;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .faq-button:hover {
+      background-color: #F9FAFB;
+    }
+    
+    .faq-button[aria-expanded="true"] {
+      background-color: #F3F4F6;
+      border-bottom: 2px solid #E5E7EB;
+    }
+    
+    .faq-button span {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: #1E293B;
+      flex: 1;
+    }
+    
+    .faq-icon-wrapper {
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(30, 58, 138, 0.1);
+      border-radius: 50%;
+      margin-left: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    
+    .faq-button:hover .faq-icon-wrapper {
+      background-color: rgba(30, 58, 138, 0.15);
+    }
+    
+    .faq-button[aria-expanded="true"] .faq-icon-wrapper {
+      background-color: #1E3A8A;
+    }
+    
+    .faq-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: #1E3A8A;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    
+    .faq-button[aria-expanded="true"] .faq-icon {
+      transform: rotate(180deg);
+      color: white;
+    }
+    
+    /* Contenido de la respuesta */
+    .faq-content {
+      padding: 0 1.25rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+    
+    .faq-button[aria-expanded="true"] + .faq-content {
+      padding: 0.75rem 1.25rem 1.5rem;
+      max-height: 1000px;
+    }
+    
+    .faq-content p {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      color: #4B5563;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    
+    .faq-content ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .faq-content li {
+      font-family: 'Inter', sans-serif;
+      color: #4B5563;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    
+    .faq-content li::marker {
+      color: #1E3A8A;
+    }
+    
+    .faq-content p:last-child,
+    .faq-content ul:last-child,
+    .faq-content li:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* CTA lateral */
+    .faq-cta {
+      background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+      border-radius: 1rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      position: relative;
+      height: fit-content;
+      opacity: 0;
+      animation: faqFadeIn 0.6s ease forwards 0.7s;
+    }
+    
+    .faq-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      transform: translate(30%, -30%);
+    }
+    
+    .faq-cta-content {
+      position: relative;
+      z-index: 1;
+      padding: 2.5rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .faq-cta-icon {
+      width: 4rem;
+      height: 4rem;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .faq-cta-icon svg {
+      width: 2rem;
+      height: 2rem;
+      color: white;
+    }
+    
+    .faq-cta-content h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .faq-cta-content p {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+    }
+    
+    .faq-cta-button {
+      display: inline-block;
+      background-color: white;
+      color: #1E3A8A;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Animaciones */
+    @keyframes faqFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Media queries */
+    @media (max-width: 1024px) {
+      .faq-cta-content {
+        padding: 2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .faq-section {
+        padding: 4rem 0;
+      }
+      
+      .faq-header h2 {
+        font-size: 2rem;
+      }
+      
+      .faq-button span {
+        font-size: 1rem;
+      }
+      
+      .faq-cta-content h3 {
+        font-size: 1.25rem;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .faq-header h2 {
+        font-size: 1.75rem;
+      }
+      
+      .faq-button {
+        padding: 1rem;
+      }
+      
+      .faq-button span {
+        font-size: 0.9375rem;
+      }
+      
+      .faq-content p, 
+      .faq-content li {
+        font-size: 0.9375rem;
+      }
+      
+      .faq-cta-content {
+        padding: 1.5rem;
+      }
+      
+      .faq-cta-icon {
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1rem;
+      }
+      
+      .faq-cta-icon svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  </style>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Gestionar las preguntas frecuentes
+      const faqButtons = document.querySelectorAll('.faq-button');
+      
+      faqButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const isExpanded = button.getAttribute('aria-expanded') === 'true';
+          
+          // Cerrar todos los otros FAQs
+          faqButtons.forEach(otherButton => {
+            if (otherButton !== button && otherButton.getAttribute('aria-expanded') === 'true') {
+              otherButton.setAttribute('aria-expanded', 'false');
+            }
+          });
+          
+          // Alternar el estado actual con animación suave
+          button.setAttribute('aria-expanded', String(!isExpanded));
+        });
+      });
+    });
+  </script>

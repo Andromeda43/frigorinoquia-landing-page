@@ -384,14 +384,21 @@ const ImpactMap: React.FC = () => {
   
   // Establecer el zoom inicial del mapa para mostrar Colombia
   const [zoom, setZoom] = useState(6);
+  const [mapCenter, setMapCenter] = useState(colombiaCenterCoordinates);
   
   // Ajustar el zoom en dispositivos móviles
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setZoom(5);
+        // Ajustar ligeramente el centro para mejor visualización en móviles
+        setMapCenter({ lat: 5.0, lng: -73.0 });
+      } else if (window.innerWidth < 1024) {
+        setZoom(5.5);
+        setMapCenter(colombiaCenterCoordinates);
       } else {
         setZoom(6);
+        setMapCenter(colombiaCenterCoordinates);
       }
     };
     
@@ -473,7 +480,8 @@ const ImpactMap: React.FC = () => {
               borderRadius: '0.5rem',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
               overflow: 'hidden',
-              height: '100%'
+              height: '100%',
+              width: '100%'
             }}>
               {API_KEY ? (
                 <APIProvider apiKey={API_KEY}>
@@ -723,6 +731,13 @@ const ImpactMap: React.FC = () => {
           grid-template-columns: 1fr;
           gap: 2rem;
         }
+          
+        .map-container {
+          width: 100%;
+          height: auto; /* Altura automática para adaptarse al contenedor */
+          min-height: 400px; /* Altura mínima para asegurar visibilidad */
+          margin-bottom: 1rem;
+        }
         
         .stats-grid {
           display: grid;
@@ -737,10 +752,18 @@ const ImpactMap: React.FC = () => {
         }
         
         /* Media query para hacer el diseño responsive */
+        @media (min-width: 768px) {
+          .map-container {
+            min-height: 500px;
+          }
+        }
+        
         @media (min-width: 1024px) {
           .impact-grid {
             grid-template-columns: 2fr 1fr;
           }
+            .map-container {
+            height: 100%;
         }
         
         /* CSS personalizados para que los InfoWindow se vean como en la imagen */
@@ -753,6 +776,13 @@ const ImpactMap: React.FC = () => {
         .gm-style .gm-style-iw-d {
           overflow: hidden !important;
           padding: 0 !important;
+        }
+          /* Mejoras para dispositivos táctiles */
+        @media (max-width: 768px) {
+          /* Mejora la experiencia táctil para el mapa en móviles */
+          .map-container {
+            touch-action: pan-x pan-y;
+          }
         }
         `}
       </style>

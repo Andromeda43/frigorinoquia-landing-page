@@ -80,20 +80,20 @@
 
 <script>
   // Función para detectar si es un dispositivo móvil o conexión lenta
-  function isMobileOrSlowConnection() {
-    // Verificar si es un dispositivo móvil
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    // Verificar si la conexión es lenta (si está disponible la API)
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    const isSlowConnection = connection && 
-      (connection.effectiveType === 'slow-2g' || 
-       connection.effectiveType === '2g' || 
-       connection.effectiveType === '3g' ||
-       connection.saveData === true);
-    
-    return isMobile || isSlowConnection;
-  }
+  function isSlowConnection() {
+    const connection = typeof navigator !== 'undefined' && 
+                   ('connection' in navigator || 
+                    'mozConnection' in navigator || 
+                    'webkitConnection' in navigator)
+  ? (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection
+  : null;
+
+  return connection &&
+    (connection.effectiveType === 'slow-2g' ||
+     connection.effectiveType === '2g' ||
+     connection.effectiveType === '3g' ||
+     connection.saveData === true);
+}
   
   // Función para cargar video optimizado
   function loadBackgroundVideo() {
@@ -101,8 +101,8 @@
     if (!videoContainer) return;
     
     // No cargar video en móviles o conexiones lentas
-    if (isMobileOrSlowConnection()) {
-      console.log('Mobile or slow connection detected, skipping video loading');
+    if (isSlowConnection()) {
+      console.log('Slow connection detected, skipping video loading');
       return;
     }
     

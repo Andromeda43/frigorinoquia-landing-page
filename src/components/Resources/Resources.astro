@@ -1,157 +1,744 @@
 ---
-// Resources.astro
+// Resources.astro - Componente renovado para el centro de recursos
 ---
 
-<section class="section bg-neutral-100">
-    <div class="container mx-auto px-4 lg:px-8">
-      <div class="section-title">
-        <h2>Centro de Recursos</h2>
-        <p class="text-neutral-700 max-w-3xl mx-auto">Información relevante sobre la industria cárnica y buenas prácticas para nuestros clientes y aliados.</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Artículo 1 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden reveal-from-bottom">
-          <div class="h-52 overflow-hidden relative">
-            <img 
-              src="/images/resources/article-1.jpg" 
-              alt="La importancia de la trazabilidad en la industria cárnica" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold uppercase px-2 py-1 rounded">
-              Artículo
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 hover:text-primary transition-colors">
-              <a href="#" class="block">La importancia de la trazabilidad en la industria cárnica</a>
-            </h3>
-            <p class="text-neutral-600 text-sm mb-4">
-              Descubre cómo un sistema de trazabilidad completo puede mejorar la calidad, seguridad y confianza en los productos cárnicos.
-            </p>
-            <div class="flex justify-between items-center">
-              <span class="text-xs text-neutral-500">Mayo 5, 2025</span>
-              <a href="#" class="text-primary font-medium text-sm hover:underline">Leer más</a>
-            </div>
-          </div>
+<section id="recursos" class="res-section">
+  <div class="res-container">
+    <div class="res-header">
+      <h2>Centro de Recursos Normativos</h2>
+      <p>Documentación oficial y recursos formativos sobre normatividad en plantas de beneficio animal para nuestros clientes y aliados estratégicos.</p>
+    </div>
+    
+    <div class="res-main-grid">
+      <!-- Recurso 1: Resolución 2024014710 de 2024 -->
+      <div class="res-card">
+        <div class="res-card-image">
+          <img src="/images/resources/normativa-1.jpg" alt="Requisitos sanitarios para comercialización de carne" class="res-img">
+          <div class="res-card-badge">Resolución</div>
         </div>
-        
-        <!-- Artículo 2 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden reveal-from-bottom" style="transition-delay: 0.1s">
-          <div class="h-52 overflow-hidden relative">
-            <img 
-              src="/images/resources/article-2.jpg" 
-              alt="Bienestar animal y calidad de la carne" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold uppercase px-2 py-1 rounded">
-              Investigación
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 hover:text-primary transition-colors">
-              <a href="#" class="block">Bienestar animal y calidad de la carne</a>
-            </h3>
-            <p class="text-neutral-600 text-sm mb-4">
-              Estudios recientes demuestran la relación directa entre el buen trato animal y la calidad final del producto cárnico.
-            </p>
-            <div class="flex justify-between items-center">
-              <span class="text-xs text-neutral-500">Abril 22, 2025</span>
-              <a href="#" class="text-primary font-medium text-sm hover:underline">Leer más</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Artículo 3 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden reveal-from-bottom" style="transition-delay: 0.2s">
-          <div class="h-52 overflow-hidden relative">
-            <img 
-              src="/images/resources/article-3.jpg" 
-              alt="Normativas del sector cárnico: Lo que debes saber" 
-              class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div class="absolute top-4 left-4 bg-primary text-white text-xs font-bold uppercase px-2 py-1 rounded">
-              Guía
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 hover:text-primary transition-colors">
-              <a href="#" class="block">Normativas del sector cárnico: Lo que debes saber</a>
-            </h3>
-            <p class="text-neutral-600 text-sm mb-4">
-              Resumen actualizado de las principales normativas que rigen el sector cárnico en Colombia y su importancia para los productores.
-            </p>
-            <div class="flex justify-between items-center">
-              <span class="text-xs text-neutral-500">Abril 10, 2025</span>
-              <a href="#" class="text-primary font-medium text-sm hover:underline">Leer más</a>
-            </div>
+        <div class="res-card-content">
+          <h3>
+            <a href="https://www.invima.gov.co/sites/default/files/alimentos-y-bebidas-alcoholicas/Carne/Autorizaci%C3%B3n%20comercializaci%C3%B3n/normatividad/RESOLUCI%C3%93N%202024014710%20DEL%2004%20DE%20ABRIL%20DE%202024.pdf" target="_blank" class="res-card-title">
+              Resolución 2024014710 de 2024 – INVIMA
+            </a>
+          </h3>
+          <p>Establece los requisitos sanitarios actualizados para la comercialización de carne y productos cárnicos comestibles en Colombia, incluyendo criterios de inocuidad y calidad.</p>
+          <div class="res-card-footer">
+            <span class="res-date">Abril 4, 2024</span>
+            <a href="https://www.invima.gov.co/sites/default/files/alimentos-y-bebidas-alcoholicas/Carne/Autorizaci%C3%B3n%20comercializaci%C3%B3n/normatividad/RESOLUCI%C3%93N%202024014710%20DEL%2004%20DE%20ABRIL%20DE%202024.pdf" target="_blank" class="res-link">Descargar PDF</a>
           </div>
         </div>
       </div>
       
-      <!-- Recursos adicionales -->
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <!-- Recurso 1: Guías -->
-        <div class="bg-white p-6 rounded-lg shadow-lg reveal-from-bottom" style="transition-delay: 0.3s">
-          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-          </div>
-          <h3 class="font-bold text-lg mb-2">Guías y Manuales</h3>
-          <p class="text-neutral-700 mb-4">Documentos técnicos sobre buenas prácticas en la industria cárnica.</p>
-          <a href="#" class="text-primary font-medium hover:underline">Ver guías</a>
+      <!-- Recurso 2: Cartilla Decreto 1500 -->
+      <div class="res-card">
+        <div class="res-card-image">
+          <img src="/images/resources/normativa-2.jpg" alt="Cartilla de Implementación del Decreto 1500" class="res-img">
+          <div class="res-card-badge">Guía Técnica</div>
         </div>
-        
-        <!-- Recurso 2: Webinars -->
-        <div class="bg-white p-6 rounded-lg shadow-lg reveal-from-bottom" style="transition-delay: 0.4s">
-          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
+        <div class="res-card-content">
+          <h3>
+            <a href="https://www.invima.gov.co/sites/default/files/alimentos-y-bebidas-alcoholicas/2023-10/CARTILLA-DECRETO-1500-2007-compressed.pdf" target="_blank" class="res-card-title">
+              Cartilla de Implementación del Decreto 1500 de 2007
+            </a>
+          </h3>
+          <p>Guía completa sobre el Sistema Oficial de Inspección, Vigilancia y Control de la carne y productos cárnicos comestibles, con enfoque en trazabilidad y buenas prácticas.</p>
+          <div class="res-card-footer">
+            <span class="res-date">Octubre, 2023</span>
+            <a href="https://www.invima.gov.co/sites/default/files/alimentos-y-bebidas-alcoholicas/2023-10/CARTILLA-DECRETO-1500-2007-compressed.pdf" target="_blank" class="res-link">Descargar PDF</a>
           </div>
-          <h3 class="font-bold text-lg mb-2">Webinars</h3>
-          <p class="text-neutral-700 mb-4">Conferencias virtuales con expertos en diferentes aspectos del sector.</p>
-          <a href="#" class="text-primary font-medium hover:underline">Ver webinars</a>
         </div>
-        
-        <!-- Recurso 3: Preguntas frecuentes -->
-        <div class="bg-white p-6 rounded-lg shadow-lg reveal-from-bottom" style="transition-delay: 0.5s">
-          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h3 class="font-bold text-lg mb-2">FAQ</h3>
-          <p class="text-neutral-700 mb-4">Respuestas a las preguntas más comunes sobre nuestros servicios y procesos.</p>
-          <a href="#" class="text-primary font-medium hover:underline">Ver preguntas</a>
+      </div>
+      
+      <!-- Recurso 3: Resolución 115708 de 2021 -->
+      <div class="res-card">
+        <div class="res-card-image">
+          <img src="/images/resources/normativa-3.jpg" alt="Requisitos para Autorización Sanitaria" class="res-img">
+          <div class="res-card-badge">Resolución</div>
         </div>
-        
-        <!-- Recurso 4: Newsletter -->
-        <div class="bg-white p-6 rounded-lg shadow-lg reveal-from-bottom" style="transition-delay: 0.6s">
-          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
+        <div class="res-card-content">
+          <h3>
+            <a href="https://www.ica.gov.co/getattachment/95a2f616-b4d9-4710-99fb-d0c3141902b6/2021R115708.aspx" target="_blank" class="res-card-title">
+              Resolución 115708 de 2021 – ICA
+            </a>
+          </h3>
+          <p>Establece los requisitos para obtener la Autorización Sanitaria y de Inocuidad en predios productores de animales destinados a la producción de carne y/o leche para consumo humano.</p>
+          <div class="res-card-footer">
+            <span class="res-date">Noviembre, 2021</span>
+            <a href="https://www.ica.gov.co/getattachment/95a2f616-b4d9-4710-99fb-d0c3141902b6/2021R115708.aspx" target="_blank" class="res-link">Descargar PDF</a>
           </div>
-          <h3 class="font-bold text-lg mb-2">Newsletter</h3>
-          <p class="text-neutral-700 mb-4">Suscríbete para recibir las últimas novedades del sector y nuestros servicios.</p>
-          
-          <form class="mt-4 flex">
-            <input 
-              type="email" 
-              placeholder="Tu correo electrónico" 
-              class="flex-1 py-2 px-3 border border-neutral-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-              required
-            />
-            <button 
-              type="submit" 
-              class="bg-primary text-white py-2 px-4 rounded-r-lg hover:bg-primary-light transition-colors"
-            >
-              Suscribirse
-            </button>
-          </form>
         </div>
       </div>
     </div>
-  </section>
+    
+    <!-- Más recursos normativos -->
+    <div class="res-secondary-resources">
+      <h3 class="res-secondary-title">Documentos Complementarios</h3>
+      
+      <div class="res-secondary-grid">
+        <!-- Documento 1: Decreto 1500 -->
+        <div class="res-secondary-card">
+          <div class="res-secondary-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <div class="res-secondary-content">
+            <h4>Decreto 1500 de 2007</h4>
+            <p>Establece el reglamento técnico del Sistema Oficial de Inspección, Vigilancia y Control, fundamento de nuestra operación como planta de beneficio.</p>
+            <a href="https://corponarino.gov.co/expedientes/juridica/2007decreto1500.pdf" target="_blank">Descargar</a>
+          </div>
+        </div>
+        
+        <!-- Documento 2: Bienestar Animal -->
+        <div class="res-secondary-card">
+          <div class="res-secondary-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+            </svg>
+          </div>
+          <div class="res-secondary-content">
+            <h4>Manual de Condiciones de Bienestar Animal</h4>
+            <p>Resolución 253 de 2020 que adopta el Manual de Condiciones de Bienestar Animal para especies de producción en el sector agropecuario.</p>
+            <a href="https://www.ica.gov.co/getattachment/1ea4c816-7e31-41c9-9b88-166dd254caf4/2024R00016409.aspx" target="_blank">Descargar</a>
+          </div>
+        </div>
+        
+        <!-- Documento 3: Guía Trazabilidad -->
+        <div class="res-secondary-card">
+          <div class="res-secondary-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+            </svg>
+          </div>
+          <div class="res-secondary-content">
+            <h4>Sistema de Trazabilidad en Colombia</h4>
+            <p>Guía sobre el funcionamiento del Sistema Nacional de Identificación e Información del Ganado Bovino (SINIGAN) y su importancia en la cadena cárnica.</p>
+            <a href="#" target="_blank">Descargar</a>
+          </div>
+        </div>
+        
+        <!-- Documento 4: Buenas Prácticas -->
+        <div class="res-secondary-card">
+          <div class="res-secondary-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <div class="res-secondary-content">
+            <h4>Manual de Buenas Prácticas</h4>
+            <p>Recomendaciones técnicas para optimizar los procesos de transporte, manejo y procesamiento de ganado con enfoque en calidad y rendimiento.</p>
+            <a href="#" target="_blank">Descargar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Recursos adicionales + Suscripción-->
+    <div class="res-bottom-section">
+      <div class="res-info-boxes">
+        <div class="res-info-box">
+          <div class="res-info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </div>
+          <div class="res-info-content">
+            <h4>Asesoría Normativa</h4>
+            <p>Contamos con un equipo de expertos para resolver sus dudas sobre normatividad y requisitos para el transporte y comercialización de productos cárnicos.</p>
+            <a href="#contacto" class="res-action-btn">Solicitar información</a>
+          </div>
+        </div>
+        
+        <div class="res-info-box">
+          <div class="res-info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="res-info-content">
+            <h4>Capacitaciones Virtuales</h4>
+            <p>Ofrecemos talleres virtuales sobre cumplimiento normativo, buenas prácticas de manejo y optimización de procesos en la industria cárnica.</p>
+            <a href="#contacto" class="res-action-btn">Agendar capacitación</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="res-newsletter">
+        <div class="res-newsletter-content">
+          <div class="res-newsletter-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <h4>Mantente actualizado</h4>
+            <p>Suscríbete a nuestro boletín para recibir actualizaciones sobre normativas, eventos del sector cárnico y noticias relevantes.</p>
+          </div>
+        </div>
+        
+        <form class="res-newsletter-form">
+          <input 
+            type="email" 
+            placeholder="Tu correo electrónico" 
+            class="res-newsletter-input"
+            required
+          />
+          <button 
+            type="submit" 
+            class="res-newsletter-button"
+          >
+            Suscribirse
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos base de la sección */
+  .res-section {
+    padding: 5rem 0;
+    background-color: #F8FAFC;
+    position: relative;
+  }
+  
+  .res-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #1E3A8A, #3B82F6);
+  }
+  
+  .res-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  /* Encabezado de sección */
+  .res-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  
+  .res-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1E3A8A;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .res-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #F97316;
+  }
+  
+  .res-header p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #4B5563;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-family: 'Merriweather', serif;
+  }
+  
+  /* Grid principal de recursos */
+  .res-main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  /* Tarjeta de recurso */
+  .res-card {
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    opacity: 0;
+    animation: resFadeInUp 0.6s ease forwards;
+  }
+  
+  .res-card:nth-child(1) { animation-delay: 0.1s; }
+  .res-card:nth-child(2) { animation-delay: 0.2s; }
+  .res-card:nth-child(3) { animation-delay: 0.3s; }
+  
+  .res-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Imagen de la tarjeta */
+  .res-card-image {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .res-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .res-card:hover .res-img {
+    transform: scale(1.05);
+  }
+  
+  .res-card-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: #1E3A8A;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    z-index: 2;
+  }
+  
+  /* Contenido de la tarjeta */
+  .res-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .res-card-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  .res-card-title {
+    color: #1E293B;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .res-card-title:hover {
+    color: #1E3A8A;
+  }
+  
+  .res-card-content p {
+    color: #4B5563;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-family: 'Merriweather', serif;
+  }
+  
+  .res-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+  
+  .res-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    color: #64748B;
+  }
+  
+  .res-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1E3A8A;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .res-link:hover {
+    color: #F97316;
+    text-decoration: underline;
+  }
+  
+  /* Sección secundaria de recursos */
+  .res-secondary-resources {
+    margin-bottom: 4rem;
+  }
+  
+  .res-secondary-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1E3A8A;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  .res-secondary-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #F97316;
+  }
+  
+  .res-secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Tarjeta secundaria */
+  .res-secondary-card {
+    display: flex;
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: resFadeInUp 0.6s ease forwards;
+    animation-delay: 0.4s;
+    border-left: 4px solid #1E3A8A;
+  }
+  
+  .res-secondary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .res-secondary-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background-color: rgba(30, 58, 138, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: #1E3A8A;
+  }
+  
+  .res-secondary-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .res-secondary-content {
+    flex: 1;
+  }
+  
+  .res-secondary-content h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 0.5rem;
+  }
+  
+  .res-secondary-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: #4B5563;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .res-secondary-content a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1E3A8A;
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  .res-secondary-content a:hover {
+    color: #F97316;
+    text-decoration: underline;
+  }
+  
+  /* Sección inferior */
+  .res-bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .res-bottom-section {
+      flex-direction: row;
+    }
+  }
+  
+  /* Boxes de información */
+  .res-info-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 2;
+  }
+  
+  .res-info-box {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: flex-start;
+    opacity: 0;
+    animation: resFadeInUp 0.6s ease forwards;
+  }
+  
+  .res-info-box:nth-child(1) { animation-delay: 0.5s; }
+  .res-info-box:nth-child(2) { animation-delay: 0.6s; }
+  
+  .res-info-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    background-color: rgba(30, 58, 138, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: #1E3A8A;
+  }
+  
+  .res-info-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .res-info-content {
+    flex: 1;
+  }
+  
+  .res-info-content h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 0.75rem;
+  }
+  
+  .res-info-content p {
+    font-family: 'Merriweather', serif;
+    font-size: 0.9375rem;
+    color: #4B5563;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .res-action-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    background-color: #1E3A8A;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .res-action-btn:hover {
+    background-color: #1E4A9A;
+  }
+  
+  /* Newsletter */
+  .res-newsletter {
+    background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    opacity: 0;
+    animation: resFadeInUp 0.6s ease forwards 0.7s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .res-newsletter-content {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+  .res-newsletter-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+  }
+  
+  .res-newsletter-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .res-newsletter h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .res-newsletter p {
+    font-family: 'Merriweather', serif;
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+  }
+  
+  .res-newsletter-form {
+    display: flex;
+    margin-top: auto;
+  }
+  
+  .res-newsletter-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.375rem 0 0 0.375rem;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .res-newsletter-input:focus {
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5);
+  }
+  
+  .res-newsletter-button {
+    padding: 0.75rem 1.25rem;
+    background-color: #F97316;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: none;
+    border-radius: 0 0.375rem 0.375rem 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .res-newsletter-button:hover {
+    background-color: #EA580C;
+  }
+  
+  /* Animaciones */
+  @keyframes resFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Media queries para responsividad */
+  @media (max-width: 1024px) {
+    .res-main-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .res-section {
+      padding: 4rem 0;
+    }
+    
+    .res-header h2 {
+      font-size: 2rem;
+    }
+    
+    .res-secondary-grid {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .res-header h2 {
+      font-size: 1.75rem;
+    }
+    
+    .res-info-box {
+      flex-direction: column;
+    }
+    
+    .res-info-icon {
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
+    
+    .res-newsletter-content {
+      flex-direction: column;
+    }
+    
+    .res-newsletter-icon {
+      margin-bottom: 1rem;
+      margin-right: 0;
+    }
+  }
+</style>
+
+<script>
+  // Script para activar animaciones cuando los elementos entran en el viewport
+  document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    const animatedElements = document.querySelectorAll('.res-card, .res-secondary-card, .res-info-box, .res-newsletter');
+    animatedElements.forEach(el => {
+      (el as HTMLElement).style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  });
+</script>
